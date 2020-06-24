@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{{page_title|title}}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+{% block header_block %}
+<header>
+<div class="logo">
+	<a href="{% url 'main:index' %}"><img src="{% static 'img/bee_logo.png' %}" href="/"/></a>
+</div>
+<div style='font-family: digital_c; margin-top: -22px; '>
+	<div class='clock'><h1>{{ cur_date }}</h1></div>
+	<div class="menu">
+<a href="{% url 'main:index' %}">HOME</a>
+<a href="{% url 'main:products' %}">BUY</a>
+<a href="{% url 'main:contacts' %}">CONTACTS</a>
+</div>
+</div>
+</header>
+{% endblock %}
+
+{% block mid_block %}
+{% endblock %}
+
+{% block foot_block %}
+<footer>
+<div class="foot_line">
+<div class="foot_text">
+
+<div class="foot_info_block">
+	<h3>About Us</h3>
+	<ul style="list-style-type:none;">
+		<li>About me</li>
+			<li>About you</li>
+				<li>About them</li>
+	</ul>
+</div>
+
+<div class="foot_info_block">
+	<h3>Support</h3>
+	<ul style="list-style-type:none;">
+		<li>Support me</li>
+			<li>Support you</li>
+				<li>Support them</li>
+	</ul>
+</div>
+
+<div class="foot_info_block">
+	<h3>Contacts</h3>
+	<ul style="list-style-type:none;">
+		<li>Contact me</li>
+			<li>Contact you</li>
+				<li>Contact them</li>
+	</ul>
+</div>
+
+<div class="foot_info_block">
+	<h3>Recruitment</h3>
+	<ul style="list-style-type:none;">
+		<li>We</li>
+			<li>Don't</li>
+				<li>Recruit</li>
+	</ul>
+</div>
+</div>
+<p>© {{ cur_year }} LoonKai. All rights reserved.</p>
+</div>
+
+<div class="by">
+	<img src="{% static 'img/sm_icons.png' %}">
+	<img src="{% static 'img/createdby.png' %}">
+</div>
+</footer>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{"offices": {"locations": [
+
+	{
+        "address":"800 Commons Pl",
+        "city":"Manhattan, KS 66503",
+        "phone":"1-785-770-3643"
+    },
+     {
+         "address": "2401 Utah Ave. S., S-CR1",
+         "city": "Seattle, WA 98134",
+         "phone": "1-800-Beenine (782-7282)"
+                 },
+     {
+         "address": "1 Camino Santa Maria Rd",
+         "city": "San Antonio, TX 78228",
+         "phone": "1-210-431-2202"
+                 }
+    ]}
+}
