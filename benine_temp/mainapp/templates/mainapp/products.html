@@ -5,7 +5,7 @@
 {% block mid_block %}
 <div class="products_block">
 
-<div class="prod_menu"><h3 onclick="display_prods(0, products.length);">All</h3><h3 onclick="display_prods(0, 3);">Chats</h3><h3 onclick="display_prods(3, products.length);">Messengers</h3></div>
+{% include 'mainapp/includes/inc__categories.html' %}
 <div class="prod_view">
 	<div class="prod_image"></div> <div class="prod_info"></div>
 </div>

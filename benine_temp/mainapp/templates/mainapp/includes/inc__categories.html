@@ -1,0 +1,18 @@
+
+
+<div class="prod_menu">
+    <h3 onclick="{{ action0 }}">All</h3>
+
+{% for category in categories %}
+    {% if category.id == 1 %}
+
+        <h3 onclick="{{ action1 }}">
+    {% else %}
+
+        <h3 onclick="{{ action2 }}">
+    {% endif %}
+        {{ category.name }}</h3>
+
+{% endfor %}
+
+    </div>
