@@ -1,0 +1,6 @@
+[
+	{"name":"Chats",
+	"description": "Subscription plans for group messengers and chats"},
+	{"name":"Messengers",
+	"description": "Subscription plans for p2p messengers"}
+]

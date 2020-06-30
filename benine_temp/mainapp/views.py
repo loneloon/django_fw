@@ -12,11 +12,10 @@ def index(request):
 
     context = {
         'page_title':'home',
-        'cur_date': f'{date}',
-        'cur_year': f'{date[-4:]}',
     }
 
     return render(request, 'mainapp/index.html', context)
+
 
 def products(request):
     categories = ProductCategory.objects.all()
@@ -24,22 +23,16 @@ def products(request):
 
     context = {
         'page_title': 'products',
-        'cur_date': f'{date}',
-        'cur_year': f'{date[-4:]}',
         'categories': categories,
         'products': products,
-        'action0': 'display_prods(0, products.length);',
-        'action1': 'display_prods(0, 3);',
-        'action2': 'display_prods(3, products.length);',
     }
 
     return render(request, 'mainapp/products.html', context)
 
+
 def contacts(request):
     context = {
         'page_title': 'contacts',
-        'cur_date': f'{date}',
-        'cur_year': f'{date[-4:]}',
     }
 
     try:

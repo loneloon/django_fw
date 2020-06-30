@@ -43,6 +43,7 @@ let products = [
 }
 ]
 
+
 function display_prods(lm, rm) {
     document.querySelector('.prod_view').style.display = 'none';
     document.querySelector('.prod_image').innerHTML = '';
@@ -53,11 +54,10 @@ function display_prods(lm, rm) {
 	document.getElementById('p_table').innerHTML = '';
 
 	for (let j=0; j < (products.length/3); j++){
-	document.getElementById('p_table').innerHTML += "<tr id=" + String(j) + "></tr>";
 
 	for (let i=0; i<3; i++){
 		if ( lm <= (i+j*3) && (i+j*3) < rm) {
-		document.getElementById(j).innerHTML += "<td id='p" + String(i+j*3) + "' onclick='inspect_prod(" + String(i+j*3) + ");'" + ">" + '<h2>' + products[i+j*3]['name'] + '</h2>' + "<img src='/static/img/prods/" + products[i+j*3]['pic'] + ".png' />" + '<p>'+ products[i+j*3]['desc'] + '</p><br>' +
+		document.getElementById('p_table').innerHTML += "<td id='p" + String(i+j*3) + "' onclick='inspect_prod(" + String(i+j*3) + ");'" + ">" + '<h2>' + products[i+j*3]['name'] + '</h2>' + "<img src='/static/img/prods/" + products[i+j*3]['pic'] + ".png' />" + '<p>'+ products[i+j*3]['desc'] + '</p><br>' +
 		'<p>'+ products[i+j*3]['price'] + '$ </p>' +
 		"<div class='button-order'style='margin: 10px;'>Purchase</div>" + '</td>';
 		}
@@ -113,5 +113,3 @@ for (let i=0; i < 3; i++){
 
 }
 
-
-display_prods(0, products.length);

@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {font-family: pixel_f; src: url('/static/fonts/Fixedsys.ttf');}
+@font-face {font-family: digital_c; src: url('/static/fonts/VCR_OSD_MONO.ttf');}
+
+body {
+	color: #FFFFFF;
+	background-color: #100b0f;
+	margin-top: 3vh;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+.log_box {
+    display: block;
+}
+
+a:link{
+    color: #392261;
+    text-decoration: none;
+}
+
+a:hover{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+header {
+	text-align: center;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	
+}
+
+.logo {
+	float: left;
+	margin-left: -30px;
+	margin-bottom: 60px;
+}
+
+
+.button-order {
+	background-color:  #02b987;
+	box-shadow: 0px 2px 4.85px 0.15px rgba(33, 33, 33, 0.35);
+	width: 150px;
+	height: 45px;
+	display: block;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 22px;
+	text-decoration: none;
+	color:  #212121;
+	font-size: 14px;
+	font-weight: 700;
+	font-family: sans-serif;
+	line-height: 45px;
+	margin-top: 32px;
+	letter-spacing: 1px;
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+.button-order:hover {
+	background-color:  #FFFFFF;
+	cursor: pointer;
+}
+.button-order:active {
+	box-shadow: none;
+	margin-top: 35px;
+}
+.button-order img{
+	padding-left: 22px;
+}

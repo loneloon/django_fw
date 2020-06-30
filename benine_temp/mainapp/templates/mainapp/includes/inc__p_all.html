@@ -1,0 +1,15 @@
+{% for product in products %}
+		<tbody>
+			<tr>
+				<td id="p{{ forloop.counter0 }}" onclick="inspect_prod({{ forloop.counter0 }});">
+					<h2>{{ product.name }}</h2>
+					<img src="/media/{{ product.image }}" alt="{{ product.name }} badge."/>
+					<p>{{ product.short_desc }}</p>
+					<br>
+					<p>{{ product.price }}$</p>
+					<div class="button-order">Purchase</div>
+				</td>
+			</tr>
+		</tbody>
+	{% endfor %}
+

@@ -1,0 +1,62 @@
+[
+{
+	"category":"Chats",
+	"name":"Honey Bee",
+	"tags":"#basic, #1lvl, #cheap, #honey, #chat, #group",
+	"description":"A basic cheap subscription plan with both direct and group messenger functions and a basic encryption algorithm.",
+	"image":"img/prods/1.png",
+	"price":3.99,
+	"discount":0,
+	"short_desc":"Lvl-1 Chat"
+},
+{
+	"category":"Chats",
+	"name":"Silver Bee",
+	"tags":"#advanced, #2lvl, #silver, #moderate, #chat, #group",
+	"description":"An optimal subscription solution with balanced price and security. Group chats + p2p messenger backed with a two-layer encryption.",
+	"image":"img/prods/2.png",
+	"price":6.99,
+	"discount":0,
+	"short_desc":"Lvl-2 Chat"
+},
+{
+	"category":"Chats",
+	"name":"Queen Bee",
+	"tags":"#pro, #3lvl, #gold, #top, #chat, #group",
+	"description":"Top level subscription with top security. Group chats, p2p messenger, triple encryption.",
+	"image":"img/prods/3.png",
+	"price":9.99,
+	"discount":0,
+	"short_desc":"Lvl-3 Chat"
+},
+{
+	"category":"Messengers",
+	"name":"Jade Wasp",
+	"tags":"#basic, #1lvl, #jade, #wasp, #messenger, #private",
+	"description":"Basic encrypted messenger. Simple security, cheapest plan. First month for free.",
+	"image":"img/prods/4.png",
+	"price":2.99,
+	"discount":0,
+	"short_desc":"Lvl-1 Messenger"
+},
+{
+	"category":"Messengers",
+	"name":"Ruby Wasp",
+	"tags":"#advanced, #2lvl, #ruby, #wasp, #messenger, #private",
+	"description":"Advanced messenger sub. 2-level security, optimal price. Rubies get to participate in group chats if invited by Bees.",
+	"image":"img/prods/5.png",
+	"price":4.99,
+	"discount":0,
+	"short_desc":"Lvl-2 Messenger"
+},
+{
+	"category":"Messengers",
+	"name":"Purple Hornet",
+	"tags":"#pro, #3lvl, #hornet, #purple, #messenger, #private",
+	"description":"Pro-tier messenger with a top security level. Purple hornets are allowed to join any number of group chats if invited by bees.",
+	"image":"img/prods/6.png",
+	"price":6.99,
+	"discount":0,
+	"short_desc":"Lvl-3 Messenger"
+}
+]
