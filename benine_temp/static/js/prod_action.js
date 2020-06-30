@@ -94,4 +94,24 @@ function hide_view() {
 }
 
 
+
+for (let i=0; i < 3; i++){
+    document.getElementById('c'+String(i)).onclick = () => {
+    switch(i){
+            case 0:
+                display_prods(0, products.length);
+                break;
+            case 1:
+                display_prods(0, 3);
+                break;
+            case 2:
+                display_prods(3, products.length);
+                break;
+        }
+    }
+
+
+}
+
+
 display_prods(0, products.length);

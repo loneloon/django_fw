@@ -43,7 +43,7 @@ def contacts(request):
     }
 
     try:
-        with open('static/json/offices.json', 'r') as off_json:
+        with open('mainapp/json/offices.json', 'r') as off_json:
             locations = json.load(off_json)['offices']['locations']
         context['locations'] = locations
     except:
