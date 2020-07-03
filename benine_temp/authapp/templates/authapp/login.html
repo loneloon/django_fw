@@ -6,13 +6,18 @@
         {% csrf_token %}
         {{ form.as_p }}
         <br>
-        <div class="button-order form-control" type="submit" value="Sign In">Sign In</div>
+
+        <div class="button_block">
+
+            <div><input class="button-order form-control" type="submit" value="Sign In"></div>
+            <a href="{% url 'auth:register' %}"><div class="button-order">
+            Register
+            </div></a>
+
+        </div>
+
+
     </form>
 
-
-    <a href="{#% url 'auth:user_register' %#}"
-       class="btn btn-round form-control"><div class="button-order">
-        Register
-    </div></a>
 
 {% endblock %}

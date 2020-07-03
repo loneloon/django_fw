@@ -7,7 +7,7 @@
 	"image":"img/prods/1.png",
 	"price":3.99,
 	"discount":0,
-	"short_desc":"Lvl-1 Chat"
+	"level":1
 },
 {
 	"category":"Chats",
@@ -17,7 +17,7 @@
 	"image":"img/prods/2.png",
 	"price":6.99,
 	"discount":0,
-	"short_desc":"Lvl-2 Chat"
+	"level":2
 },
 {
 	"category":"Chats",
@@ -27,7 +27,7 @@
 	"image":"img/prods/3.png",
 	"price":9.99,
 	"discount":0,
-	"short_desc":"Lvl-3 Chat"
+	"level":3
 },
 {
 	"category":"Messengers",
@@ -37,7 +37,7 @@
 	"image":"img/prods/4.png",
 	"price":2.99,
 	"discount":0,
-	"short_desc":"Lvl-1 Messenger"
+	"level":1
 },
 {
 	"category":"Messengers",
@@ -47,7 +47,7 @@
 	"image":"img/prods/5.png",
 	"price":4.99,
 	"discount":0,
-	"short_desc":"Lvl-2 Messenger"
+	"level":2
 },
 {
 	"category":"Messengers",
@@ -57,6 +57,6 @@
 	"image":"img/prods/6.png",
 	"price":6.99,
 	"discount":0,
-	"short_desc":"Lvl-3 Messenger"
+	"level":3
 }
 ]

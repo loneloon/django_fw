@@ -18,13 +18,15 @@
 <div class="logo">
 	<a href="{% url 'main:index' %}"><img src="{% static 'img/bee_logo.png' %}" href="/"/></a>
 </div>
-<div style='font-family: digital_c; margin-top: -22px; '>
+<div style='font-family: digital_c; margin-top: -22px; margin-left: 70px;'>
 
 <div class="log_box">
     <div class="login">
+        {% block header %}
         <div class="h2 text-center head">
             User Authentification:
         </div>
+        {% endblock %}
 
         {% block container %}
         {% endblock %}

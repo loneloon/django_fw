@@ -16,14 +16,9 @@
 <div class="logo">
 	<a href="{% url 'main:index' %}"><img src="{% static 'img/bee_logo.png' %}" href="/"/></a>
 </div>
-<div style='font-family: digital_c; margin-top: -22px; '>
 
-	<div class="menu">
-<a href="{% url 'main:index' %}">HOME</a>
-<a href="{% url 'main:products' %}">BUY</a>
-<a href="{% url 'main:contacts' %}">CONTACTS</a>
-</div>
-</div>
+{% include 'mainapp/includes/inc__menu.html' %}
+
 </header>
 {% endblock %}
 

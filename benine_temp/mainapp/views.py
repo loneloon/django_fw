@@ -17,9 +17,10 @@ def index(request):
     return render(request, 'mainapp/index.html', context)
 
 
-def products(request):
+def products(request, pk=None):
+
     categories = ProductCategory.objects.all()
-    products = Product.objects.all()
+    products = Product.objects.all().order_by()
 
     context = {
         'page_title': 'products',

@@ -57,7 +57,7 @@ function display_prods(lm, rm) {
 
 	for (let i=0; i<3; i++){
 		if ( lm <= (i+j*3) && (i+j*3) < rm) {
-		document.getElementById('p_table').innerHTML += "<td id='p" + String(i+j*3) + "' onclick='inspect_prod(" + String(i+j*3) + ");'" + ">" + '<h2>' + products[i+j*3]['name'] + '</h2>' + "<img src='/static/img/prods/" + products[i+j*3]['pic'] + ".png' />" + '<p>'+ products[i+j*3]['desc'] + '</p><br>' +
+		document.getElementById('p_table').innerHTML += "<td id='p" + String(i+j*3) + "' onclick='inspect_prod(" + String(i+j*3) + ");'" + ">" + '<h2>' + products[i+j*3]['name'] + '</h2>' + "<img src='/media/img/prods/" + products[i+j*3]['pic'] + ".png' />" + '<p>'+ products[i+j*3]['desc'] + '</p><br>' +
 		'<p>'+ products[i+j*3]['price'] + '$ </p>' +
 		"<div class='button-order'style='margin: 10px;'>Purchase</div>" + '</td>';
 		}
@@ -80,7 +80,7 @@ function inspect_prod(id) {
 	document.querySelector('.prod_info').innerHTML += '<h2>' + products[id]['name'] + '</h2>' + '<p>'+ products[id]['desc'] + '</p><br>' +
 		'<p>'+ products[id]['price'] + '$ </p>' +
 		"<div class='b_pack'><div class='button-order back'style='margin: 10px;' onclick='hide_view();'>Back</div>" + "<div class='button-order'style='margin: 10px;'>Purchase</div></div>";
-	document.querySelector('.prod_image').innerHTML += "<img src='/static/img/prods/" + products[id]['pic'] + ".png' />";
+	document.querySelector('.prod_image').innerHTML += "<img src='/media/img/prods/" + products[id]['pic'] + ".png' />";
 	document.querySelector('.prod_view').style.display = 'flex';
 }
 

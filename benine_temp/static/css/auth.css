@@ -44,6 +44,10 @@ header {
 	margin-bottom: 60px;
 }
 
+input {
+    border-style: none;
+}
+
 
 .button-order {
 	background-color:  #02b987;
@@ -62,8 +66,8 @@ header {
 	line-height: 45px;
 	margin-top: 32px;
 	letter-spacing: 1px;
-	margin-left: 25px;
-	margin-right: 25px;
+	margin-left: 0;
+	margin-right: 0;
 	margin-top: 10px;
 	margin-bottom: 10px;
 
@@ -74,8 +78,30 @@ header {
 }
 .button-order:active {
 	box-shadow: none;
-	margin-top: 35px;
+
 }
 .button-order img{
 	padding-left: 22px;
+}
+
+.button_block{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: -40px;
+}
+
+ul {
+    width: 300px;
+    font-size: 0.8em;
+    border-style: solid;
+    border-radius: 16px;
+    background-color: blueviolet;
+    border-width: 0;
+    padding: 10px;
+    padding-right: 0px;
+    padding-left: 15px;
+    margin-left: -25px;
+    list-style: none;
+    color: black;
+
 }

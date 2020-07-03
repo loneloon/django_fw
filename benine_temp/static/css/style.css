@@ -281,7 +281,6 @@ td {
 }
 .button-order:active {
 	box-shadow: none;
-	margin-top: 35px;
 }
 .button-order img{
 	padding-left: 22px;
@@ -351,3 +350,48 @@ footer p {
 	width: 10rem;
 	padding-bottom: 1rem;
 }
+
+.auth_pad {
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-family: pixel_f;
+    font-size: 16px;
+    padding-bottom: 30px;
+    padding-right:95px;
+    text-align: right;
+    list-style: none;
+    border-style: none;
+    border-width: 0px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 30px;
+    margin-left: 260px;
+    color: cadetblue;
+    border-collapse: collapse;
+}
+
+
+.auth_pad a:link{
+    background-color: cadetblue;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.auth_pad a:visited{
+    color: #000000;
+    text-decoration: none;
+}
+
+.auth_pad a:hover{
+    background-color: chartreuse;
+    text-decoration: none;
+}
+

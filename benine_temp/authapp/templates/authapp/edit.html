@@ -1,0 +1,29 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="h2 text-center head">
+            Profile Edit:
+        </div>
+{% endblock %}
+
+{% block container %}
+    <div class="user_avatar" style="margin-top: 20px;">
+        <img src="/media/{{ user.profile_pic }}">
+    </div>
+    <form class="form-horizontal" action="{% url 'auth:edit' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ edit_form.as_p }}
+
+        <div class="button_block">
+        <div><input class="button-order form-control" type="submit" value="Save"></div>
+        <a href="{% url 'main:index' %}"><div class="button-order">
+            Back
+        </div></a>
+        </div>
+
+
+    </form>
+
+
+{% endblock %}
