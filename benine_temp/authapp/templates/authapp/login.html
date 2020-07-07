@@ -1,6 +1,14 @@
 {% extends 'authapp/base.html' %}
 {% load static %}
 
+{% block header %}
+
+<h2>
+            User Authentification:
+</h2>
+
+{% endblock %}
+
 {% block container %}
     <form class="form-horizontal" method="post">
         {% csrf_token %}

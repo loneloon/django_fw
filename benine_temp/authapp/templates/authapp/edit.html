@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block header %}
-<div class="h2 text-center head">
+<h2>
             Profile Edit:
-        </div>
+        </h2>
 {% endblock %}
 
 {% block container %}
-    <div class="user_avatar" style="margin-top: 20px;">
-        <img src="/media/{{ user.profile_pic }}">
+    <div class="user_pic" style="margin-top: 20px;">
+        <img src="{% if user.profile_pic %}/media/{{ user.profile_pic }}{% else %}{% static '/img/user_pic.png' %}{% endif %}">
     </div>
     <form class="form-horizontal" action="{% url 'auth:edit' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}

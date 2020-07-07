@@ -1,9 +1,11 @@
 {% load static %}
 
 <div style='margin-top: -30px; display: block; align-content: center; justify-content: center;'>
-<div class="auth_pad">
+    <div class="auth_pad" style="{% if user.is_authenticated %}
+        margin-left: 168px;
+        {% endif %}">
 {% if user.is_authenticated %}
-
+    <a href="{% url 'basket:view' %}"><img src="{% static '/img/cart.png' %}" style="width: 16px;"> Cart({{ b_count }}) Total: ${{ b_sum }}</a>
     <a href="{% url 'auth:edit' %}">
         {{ user.first_name|default:'Profile' }}
     </a>
@@ -20,8 +22,15 @@
 </div>
 
 	<div class="menu">
-<a href="{% url 'main:index' %}">HOME</a>
-<a href="{% url 'main:products' %}">BUY</a>
-<a href="{% url 'main:contacts' %}">CONTACTS</a>
+<a href="{% url 'main:index' %}" class="{% if request.resolver_match.url_name == 'index' %}
+    active_white !important;
+    {% endif %}">HOME</a>
+<a href="{% url 'main:category_products' 0 %}" class="{% if request.resolver_match.url_name == 'category_products' %}
+    active_white !important
+    {% endif %}">BUY</a>
+<a href="{% url 'main:contacts' %}" class="{% if request.resolver_match.url_name == 'contacts' %}
+    active_white !important
+    {% endif %}">CONTACTS</a>
 </div>
+
 </div>

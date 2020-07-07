@@ -6,14 +6,34 @@
 <div class="products_block">
 
 {% include 'mainapp/includes/inc__categories.html' %}
-<div class="prod_view">
-	<div class="prod_image"></div> <div class="prod_info"></div>
-</div>
-<table id="p_table">
+	{% if product %}
+	<div class="prod_view" style="display: flex;">
+
+	<div class="prod_image">
+		<img src="/media/{{ product.image }}"/>
+	</div>
+
+	<div class="prod_info">
+		<h2> {{ product.name }} </h2>
+		<h3>$ {{ product.price }}</h3>
+		<p>
+		{{ product.tags }}
+			<br><br>
+			{{ product.description }}
+		</p>
+		<div class='b_pack'><a href="{% url 'main:category_products' 0 %}"><div class='button-order back' style='margin: 10px;'>Back</div></a><a href="{% url 'basket:add_product' product.id %}"><div class='button-order' style='margin: 10px;'>Add to cart</div></a></div>
+	</div>
+
+	</div>
+	{% endif %}
+
+<table id="p_table" style="{% if product %}
+	display: none;
+	{% endif %}">
 
 	{% include 'mainapp/includes/inc__p_all.html' %}
 
 </table>
-<script src="/static/js/prod_action.js"></script>
+<!-- <script src="/static/js/prod_action.js"></script> -->
 </div>
 {% endblock %}

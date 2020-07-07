@@ -1,0 +1,49 @@
+{% extends 'basketapp/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<h2 style="display: flex; justify-content: center; align-content: center;">
+           <img src="{% static '/img/cart.png' %}" style="border-style: none; width: 34px; margin-left:-30px; margin-top:0; padding-right: 20px;"/> Shopping Cart:
+</h2>
+
+{% endblock %}
+
+{% block container %}
+
+  <table>
+  <tr>
+      {% if basket %}
+    <th style="border-left-style: none;">Name</th>
+    <th>Class</th>
+    <th style="padding-left: 0; text-align: center;">Amount</th>
+    <th>Price</th>
+    <th style="border-right-style: none;"></th>
+      {% else %}
+      <th style="display: flex; justify-content: center; align-content: center; padding: 40px;"><h3>Hmm... Your cart is empty!</h3><img src="{% static '/img/hmm.png' %}" style="border-style: none; width: 60px;"/></th>
+
+      {% endif %}
+
+  </tr>
+{% if basket %}
+{% for item in basket %}
+    <tr>
+        <td style="border-left-style: none;"> {{ item.product.name }} </td>
+        <td> Lvl {{ item.product.level }} {{ item.product.category.name|slice:"-1" }} </td>
+        <td style="padding-left: 0; text-align: center;"> {{ item.quantity }} </td>
+        <td style="color: mediumseagreen; border-color: white; padding-left: 0; text-align: center;"> $ {{ item.product.price }} </td>
+        <td style="text-align: center; padding-left: 0;"><a href="{% url 'basket:remove' item.pk %}" style="color: red;"> X </a></td>
+    </tr>
+{% endfor %}
+      <tr>
+      <th style="display: flex; font-size: 23px; margin-left: 70px; border-style: none;">Total:</th>
+      <td style="border-style: none;"></td>
+      <td style="border-bottom-style: none; padding-left: 0; text-align: center;">{{ b_count }}</td>
+      <td style="border-style: none; padding-left: 0; text-align: center;">${{ b_sum }}</td>
+      </tr>
+
+{% endif %}
+
+  </table>
+
+{% endblock %}
