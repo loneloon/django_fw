@@ -5,6 +5,10 @@
         margin-left: 168px;
         {% endif %}">
 {% if user.is_authenticated %}
+       {% if user.is_superuser %}
+            <a href="{% url 'admin:users' %}" style="margin-left: -48px;">Admin</a>
+        {% endif %}
+
     <a href="{% url 'basket:view' %}"><img src="{% static '/img/cart.png' %}" style="width: 16px;"> Cart({{ b_count }}) Total: ${{ b_sum }}</a>
     <a href="{% url 'auth:edit' %}">
         {{ user.first_name|default:'Profile' }}

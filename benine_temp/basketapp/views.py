@@ -42,7 +42,16 @@ def basket_add(request, pk):
 
 @login_required
 def basket_remove(request, pk):
+
+    if 'login' in request.META.get('HTTP_REFERER'):
+        return HttpResponseRedirect(reverse('main:product_inspect', args=[pk]))
+
     basket_inst = get_object_or_404(Basket, pk=pk)
-    basket_inst.delete()
+
+    if basket_inst.quantity <= 1:
+        basket_inst.delete()
+    else:
+        basket_inst.quantity -= 1
+        basket_inst.save()
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
