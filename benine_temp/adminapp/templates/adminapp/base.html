@@ -15,19 +15,25 @@
 </head>
 <body>
 
+{% block header %}
+
+<header>
 <div class="logo">
 	<a href="{% url 'main:index' %}"><img src="{% static 'img/bee_logo.png' %}" href="/"/></a>
 </div>
-<div style='font-family: digital_c; margin-top: -22px; margin-left: 70px;'>
+{% include 'adminapp/includes/inc__menu.html' %}
+</header>
+{% endblock %}
 
-<div class="log_box">
-        {% block header %}
-        {% include 'adminapp/includes/inc__menu.html' %}
+<div style='display: flex; justify-content: center;
+    align-content: center; font-family: digital_c; margin-top: -22px; margin-left: 0px;'>
 
-        {% endblock %}
+<div class="log_box wide" style="padding: 40px;">
+
 
         {% block container %}
         {% endblock %}
+</div>
 </div>
 </body>
 </html>

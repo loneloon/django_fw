@@ -12,19 +12,25 @@ body {
 
 
 a:link{
-    color: #FFFFFF;
+    color: blueviolet;
     text-decoration: none;
 }
 
 a:hover{
-    color: #FFFFFF;
+    color: blueviolet;
     text-decoration: none;
 }
 
 
 
 a:active{
-    color: #FFFFFF;
+    color: blueviolet;
+    text-decoration: none;
+}
+
+a:visited{
+    color: blueviolet;
+    text-decoration: none;
 }
 
 

@@ -3,11 +3,11 @@
 
 {% block container %}
   <div class="products_list">
-    <button class="new_product">
+    <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 0px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
       <a href="{% url 'admin:product_create' category.pk %}">
-        новый продукт
+        add product
       </a>
-    </button>
+    </div>
 
     {% for object in objects %}
       <div class="product_record">
@@ -18,27 +18,28 @@
           {{ object.name|title }}
         </div>
         <div class="product_actions">
-          <button>
+          <div class="button_block2">
+          <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
             <a href="{% url 'admin:product_read' object.pk %}">
-              подробнее
+              more
             </a>
-          </button>
-          <button>
+          </div>
+          <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
             <a href="{% url 'admin:product_update' object.pk %}">
-              редактировать
+              edit
             </a>
-          </button>
-          <button>
+          </div>
+          <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
             <a href="{% url 'admin:product_delete' object.pk %}">
-              удалить
+              delete
             </a>
-          </button>
+          </div>
+          </div>
         </div>
         <div class="summary">
-          <b>цена</b>
-          <p>{{ object.price }} руб</p>
-          <b>количество</b>
-          <p>{{ object.quantity }}</p>
+
+          <p><b>price</b>: {{ object.price }} $</p>
+          <p><b>stock</b>: {{ object.quantity }}</p>
         </div>
         <div class="product_desc">
           {{ object.short_desc|title }}

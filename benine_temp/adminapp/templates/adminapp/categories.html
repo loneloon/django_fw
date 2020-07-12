@@ -3,11 +3,11 @@
 
 {% block container %}
   <div class="categories_list">
-    <button class="new_category">
+    <div class="button-order" style=" background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 0px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
       <a href="{% url 'admin:category_create' %}">
-        новая категория
+        add category
       </a>
-    </button>
+    </div>
 		
     {% for object in objects %}
       <div class="category_record {% if not object.is_active %}
@@ -18,21 +18,23 @@
           {{ object.name|title }}
         </div>
         <div class="category_actions">
-          <button>
+          <div class="button_block2">
+          <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
             <a href="{% url 'admin:products' object.pk %}">
-              товары категории
+              products
             </a>
-          </button>
-          <button>
+          </div>
+          <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
             <a href="{% url 'admin:category_update' object.pk %}">
-              редактировать
+              edit
             </a>
-          </button>
-          <button>
+          </div>
+          <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
             <a href="{% url 'admin:category_delete' object.pk %}">
-              удалить
+              delete
             </a>
-          </button>
+          </div>
+          </div>
         </div>
         <div class="category_desc">
           {{ object.description|title }}

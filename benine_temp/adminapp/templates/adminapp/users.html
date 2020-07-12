@@ -3,34 +3,37 @@
 
 {% block container %}
   <div class="users_list">
-    <button class="new_user">
+    <div class="button-order" style="background-color: white; padding: 4px; width: 120px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 0px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
       <a href="{% url 'admin:user_create' %}">
-        новый пользователь
+        Add user
       </a>
-    </button>
+    </div>
     {% for object in objects %}
-      <div 
+      <div
        class="user_record {% if not object.is_active %}not_active{% endif %}">
-        <img 
+        <img
           src="{% if object.profile_pic %}/media/{{ object.profile_pic }}{% else %}{% static '/img/user_pic.png' %}{% endif %}"
-          alt="{{ object.username }}">
+          alt="{{ object.username }}" style="margin-left: 10px;">
         <div class="user_role">
           {% if object.is_superuser %}
-            администратор
+            Admin
           {% else %}
-            пользователь
+            User
           {% endif %}
-          <button>
+          </div>
+          <div class="button_block2">
+          <button class="button-order" style="background-color: chartreuse; padding: 4px; width: 77px; height: 27px; margin-left: 0px; margin-right: 20px; margin-top: 10px; border-style: solid; border-width: 0px; font-color: #000000; border-radius: 5px;">
             <a href={% url 'admin:user_update' object.pk %}>
-              редактировать
+              Edit
             </a>
           </button>
-          <button>
+          <button class="button-order" style="background-color: red; padding: 4px; width: 77px; height: 27px; margin-left: 0px; margin-right: 20px; margin-top: 10px; border-style: solid; border-width: 0px; border-radius: 5px;">
             <a href={% url 'admin:user_delete' object.pk %}>
-              удалить
+              Delete
             </a>
           </button>
-        </div>
+            </div>
+
         <div class="user_name">
           <p><strong>{{ object.username }}</strong></p>
 	    <p>
@@ -43,16 +46,13 @@
           </p>
         </div>
         <div class="user_age">
-          age:<br>
-          {{ object.age }} лет
+          age: {{ object.age }} y.o.
         </div>
         <div class="user_email">
-          email:<br>
-          {{ object.email }}
+          email: {{ object.email }}
         </div>
         <div class="user_lastlogin">
-          logged:<br>
-          {{ object.last_login }}
+          logged: {{ object.last_login }}
         </div>
       </div>
     {% endfor%}

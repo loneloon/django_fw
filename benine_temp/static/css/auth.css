@@ -17,12 +17,111 @@ body {
     grid-template-columns: 1fr;
     justify-content:center;
 	align-content:center;
-	padding-left: 0px;
+    margin-top: -30px;
 	text-align: left;
     width: 480px;
     border-style: solid;
     border-width: 1px;
     border-radius: 15px;
+}
+
+.log_box.wide {
+    width: 640px;
+}
+
+.users_list{
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+.user_record {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    float: left;
+}
+
+.category_record {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.product_name{
+   padding: 10px;
+   font-size: 22px;
+}
+
+.product_record {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.product_record img {
+    margin-left: 10px !important;
+}
+
+.summary p {
+    padding-left: 10px;
+}
+
+.log_box a {
+    color: black;
+}
+
+.log_box a:link {
+    color: black;
+}
+
+.log_box a:visited {
+    color: black;
+}
+
+.category_desc {
+    padding: 10px;
+}
+
+.category_name {
+    font-size: 22px;
+    padding: 10px;
+}
+
+
+.user_record p {
+    padding-left: 10px;
+
+}
+
+.user_role {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.user_name {
+    padding-left: 10px;
+}
+
+.user_age {
+    padding-left: 10px;
+}
+
+.user_email {
+    padding-left: 10px;
+}
+
+.user_lastlogin {
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .log_box img {
@@ -55,10 +154,26 @@ header {
 	
 }
 
+.adm_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+	margin-right: 13px;
+	font-family: pixel_f;
+	font-size: 44px;
+}
+
+.adm_menu a {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 .logo {
 	float: left;
-	margin-left: -30px;
+	margin-left: 0px;
 	margin-bottom: 60px;
+	padding-right: 30px;
 }
 
 h2 {
@@ -107,6 +222,8 @@ input {
 	align-items:center;
 
 }
+
+
 .button-order:hover {
 	background-color:  #FFFFFF;
 	cursor: pointer;
@@ -126,6 +243,14 @@ input {
     justify-content:center;
 	align-items:center;
 	margin-top: 15px;
+}
+
+.button_block2{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 10px;
+    justify-content:flex-start;
+	align-items:center;
 }
 
 ul {
@@ -166,3 +291,57 @@ form {
     margin-top: 15px;
 }
 
+.auth_pad {
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-family: pixel_f;
+    font-size: 16px;
+    padding-bottom: 30px;
+    padding-right:95px;
+    text-align: right;
+    list-style: none;
+    border-style: none;
+    border-width: 0px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    margin-left: 338px;
+    color: cadetblue;
+    border-collapse: collapse;
+}
+
+
+.auth_pad a:link{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.auth_pad a:link img {
+    padding-right: 4px;
+}
+
+.auth_pad a:visited{
+    align-content: center;
+    justify-content: center;
+    color: #000000;
+    text-decoration: none;
+}
+
+.auth_pad a:hover{
+    align-content: center;
+    justify-content: center;
+    background-color: chartreuse;
+    text-decoration: none;
+}
