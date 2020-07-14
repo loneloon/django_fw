@@ -2,13 +2,13 @@
     <a href="{% url 'main:index' %}">
       HOME
     </a>
-    <a href="{% url 'admin:users' %}"
+    <a href="{% url 'admin:users' 1 %}"
        class="{% if request.resolver_match.url_name == 'users' %}
                 active
               {% endif %}">
       USERS
     </a>
-    <a href="{% url 'admin:categories' %}"
+    <a href="{% url 'admin:categories' 1 %}"
        class="{% if request.resolver_match.url_name == 'categories' or category.name %}
                 active
               {% endif %}">

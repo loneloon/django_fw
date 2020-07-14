@@ -57,4 +57,19 @@
       </div>
     {% endfor%}
   </div>
+
+<div style="display: inline-block; align-items:center; justify-content:center; margin-top: 0px;
+    margin-bottom: -20px;">
+		<div style="float: left; text-align: right; margin-left: 40px;">
+			{% if objects.has_previous %}
+	<a class="turner" href="{% url 'admin:users' objects.previous_page_number %}"><h2>Back</h2></a>
+			{% endif %}
+</div>
+<div style="float: right; text-align: right; margin-right: 40px;">
+	{% if objects.has_next %}
+	<a class="turner" href="{% url 'admin:users' objects.next_page_number %}"><h2>Next</h2></a>
+	{% endif %}
+</div>
+	</div>
+
 {% endblock %}

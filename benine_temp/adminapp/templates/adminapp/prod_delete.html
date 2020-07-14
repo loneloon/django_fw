@@ -4,15 +4,15 @@
 
 {% block container %}
   <div class="user_delete">
-    Are you sure you want to delete '{{ cat_to_delete.name }}' category
+    Are you sure you want to delete '{{ prod_to_delete.name }}'
     ?
-    <form action="{% url 'admin:category_delete' cat_to_delete.pk %}"
+    <form action="{% url 'admin:product_delete' prod_to_delete.pk %}"
           method="post">
       {% csrf_token %}
       <input class="btn btn-danger" type="submit" value="Delete">
     </form>
     <button class="btn btn-success">
-      <a href="{% url 'admin:categories' 1 %}">
+      <a href="{% url 'admin:products' prod_to_delete.category.pk 1 %}">
         Cancel
       </a>
     </button>

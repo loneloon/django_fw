@@ -1,0 +1,44 @@
+{% extends 'adminapp/base.html' %}
+{% load staticfiles %}
+
+{% block container %}
+<h1 style="margin: 0; padding-bottom: 25px;">{{ object.category.name|title }} /
+          {{ object.name|title }}</h1>
+  <div class="product_read">
+
+
+    <img src="/media/{{ object.image|default:'products_images/default.jpg' }}"
+         alt="{{ object.name }}" style="margin-left: 0; margin-bottom: 25px;">
+    <p class="summary" style="margin-left: 0; padding-left: 0;">
+
+      <p style="margin-left: 0; padding-left: 0;">price: {{ object.price }} руб</p>
+      <p style="margin-left: 0; padding-left: 0;">stock: {{ object.quantity }}</p>
+
+
+        <div class="button_block2" style="margin-bottom: 25px; margin-left: 0;">
+          <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
+          <a href={% url 'admin:product_update' object.pk %}>
+            Edit
+          </a>
+          </div>
+
+        <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
+          <a href={% url 'admin:product_delete' object.pk %}>
+            Delete
+          </a>
+        </div>
+        <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
+          <a href={% url 'admin:products' object.category.pk 1 %}>
+            Back
+          </a>
+        </div>
+        </div>
+
+    </div>
+    <div class="product_desc">
+      <p style="margin-left: 0; padding-left: 0;">tags: {{ object.tags }}</p>
+      <p style="margin-left: 0; padding-left: 0;">level: {{ object.level }}</p>
+        <p style="margin-left: 0; padding-left: 0;">description: {{ object.description }}</p>
+    </div>
+  </div>
+{% endblock %}

@@ -6,14 +6,42 @@ from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
 from authapp.forms import ShopUserRegistrationForm
-from adminapp.forms import ShopUserAdminEditForm, ProductCategoryEditForm
+from adminapp.forms import ShopUserAdminEditForm, ProductCategoryEditForm, ProductEditForm
+
+from django.views.generic.list import ListView
+from django.utils.decorators import method_decorator
+
+
+def fetch_pages(page, content, offset):
+    from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+    paginator = Paginator(content, offset)
+    try:
+        pages = paginator.page(page)
+    except PageNotAnInteger:
+        pages = paginator.page(1)
+    except EmptyPage:
+        pages = paginator.page(paginator.num_pages)
+
+    return pages
+
+
+class UsersListView(ListView):
+    model = ShopUser
+    template_name = 'adminapp/users.html'
+
+    @method_decorator(user_passes_test(lambda u: u.is_superuser))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
 
 @user_passes_test(lambda u: u.is_superuser)
-def users(request):
+def users(request, page=1):
     title = 'Admin:Users'
 
     users_list = ShopUser.objects.all().order_by('-is_active', '-is_superuser', '-is_staff', 'username')
+
+    users_list = fetch_pages(page=page, content=users_list, offset=1)
 
     content = {
         'title': title,
@@ -31,7 +59,8 @@ def user_create(request):
         user_form = ShopUserRegistrationForm(request.POST, request.FILES)
         if user_form.is_valid():
             user_form.save()
-            return HttpResponseRedirect(reverse('admin:users'))
+            return HttpResponseRedirect(reverse('admin:users',
+                                                args=[1]))
     else:
         user_form = ShopUserRegistrationForm()
 
@@ -69,7 +98,8 @@ def user_delete(request, pk):
     if request.method == 'POST':
         user.delete()
 
-        return HttpResponseRedirect(reverse('admin:users'))
+        return HttpResponseRedirect(reverse('admin:users',
+                                                args=[1]))
 
     content = {'title': title, 'user_to_delete': user}
 
@@ -77,10 +107,12 @@ def user_delete(request, pk):
 
 
 @user_passes_test(lambda u: u.is_superuser)
-def categories(request):
+def categories(request, page=1):
     title = 'Admin:Categories'
 
     categories_list = ProductCategory.objects.all()
+
+    categories_list = fetch_pages(page=page, content=categories_list, offset=1)
 
     content = {
         'title': title,
@@ -98,7 +130,8 @@ def category_create(request):
         cat_form = ProductCategoryEditForm(request.POST, request.FILES)
         if cat_form.is_valid():
             cat_form.save()
-            return HttpResponseRedirect(reverse('admin:categories'))
+            return HttpResponseRedirect(reverse('admin:categories',
+                                                args=[1]))
     else:
         cat_form = ProductCategoryEditForm()
 
@@ -118,7 +151,7 @@ def category_update(request, pk):
         if edit_form.is_valid():
             edit_form.save()
             return HttpResponseRedirect(reverse('admin:categories',
-                                                args=[edit_cat.pk]))
+                                                args=[1]))
     else:
         edit_form = ProductCategoryEditForm(instance=edit_cat)
 
@@ -136,7 +169,8 @@ def category_delete(request, pk):
     if request.method == 'POST':
         category.delete()
 
-        return HttpResponseRedirect(reverse('admin:categories'))
+        return HttpResponseRedirect(reverse('admin:categories',
+                                                args=[1]))
 
     content = {'title': title, 'cat_to_delete': category}
 
@@ -144,11 +178,13 @@ def category_delete(request, pk):
 
 
 @user_passes_test(lambda u: u.is_superuser)
-def products(request, pk):
+def products(request, pk, page=1):
     title = 'Admin:Products'
 
     category = get_object_or_404(ProductCategory, pk=pk)
     products_list = Product.objects.filter(category__pk=pk).order_by('name')
+
+    products_list = fetch_pages(page=page, content=products_list, offset=2)
 
     content = {
         'title': title,
@@ -160,17 +196,67 @@ def products(request, pk):
 
 
 def product_create(request, pk):
-    pass
+    title = 'Product:Create'
+    category = get_object_or_404(ProductCategory, pk=pk)
+
+    if request.method == 'POST':
+        product_form = ProductEditForm(request.POST, request.FILES)
+        if product_form.is_valid():
+            product_form.save()
+            return HttpResponseRedirect(reverse('admin:products', args=[pk, 1]))
+    else:
+        product_form = ProductEditForm(initial={'category': category})
+
+    content = {'title': title,
+               'prod_form': product_form,
+               'category': category
+               }
+
+    return render(request, 'adminapp/prod_create.html', content)
 
 
 def product_read(request, pk):
-    pass
+    title = 'Product:Inspect'
+    product = get_object_or_404(Product, pk=pk)
+    content = {'title': title, 'object': product, }
+
+    return render(request, 'adminapp/product_read.html', content)
 
 
 def product_update(request, pk):
-    pass
+    title = 'Product:Update'
+
+    edit_product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        edit_form = ProductEditForm(request.POST, request.FILES,
+                                    instance=edit_product)
+        if edit_form.is_valid():
+            edit_form.save()
+            return HttpResponseRedirect(reverse('admin:product_update',
+                                                args=[edit_product.pk]))
+    else:
+        edit_form = ProductEditForm(instance=edit_product)
+
+    content = {'title': title,
+               'prod_form': edit_form,
+               'category': edit_product.category
+               }
+
+    return render(request, 'adminapp/prod_create.html', content)
 
 
 def product_delete(request, pk):
-    pass
+    title = 'Product:Remove'
+
+    product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        product.delete()
+        return HttpResponseRedirect(reverse('admin:products',
+                                            args=[product.category.pk, 1]))
+
+    content = {'title': title, 'prod_to_delete': product}
+
+    return render(request, 'adminapp/prod_delete.html', content)
 

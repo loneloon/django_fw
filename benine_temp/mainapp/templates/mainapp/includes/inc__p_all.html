@@ -1,13 +1,13 @@
 {% for product in products %}
 		<tbody>
 			<tr>
-				<td id="p{{ product.id }}" onclick="window.open('{% url 'main:product_inspect' product.id %}', '_self');">
+				<td id="p{{ product.id }}" onclick="window.open('{% url 'main:product_inspect' product.id 1 %}', '_self');">
 					<h2>{{ product.name }}</h2>
 					<img src="/media/{{ product.image }}" alt="{{ product.name }} badge."/>
 					<p>Lvl {{ product.level }} {{ product.category.name|slice:"-1" }}</p>
 					<br>
 					<p>${{ product.price }}</p>
-					<a href="{% url 'main:product_inspect' product.id %}"><div class="button-order">Purchase</div></a>
+					<a href="{% url 'main:product_inspect' product.id 1 %}"><div class="button-order">Purchase</div></a>
 				</td>
 			</tr>
 		</tbody>

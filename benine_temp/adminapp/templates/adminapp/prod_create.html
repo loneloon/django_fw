@@ -4,12 +4,12 @@
 {% block container %}
   <form class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ update_form.as_p }}
+    {{ prod_form.as_p }}
     <input class="form-control" type="submit" value="Save">
   </form>
   <button class="btn btn-round form-control last">
-    <a href="{% url 'admin:users' 1 %}">
-      User list
+    <a href="{% url 'admin:products' category.pk 1 %}">
+      Product list
     </a>
   </button>
 {% endblock %}

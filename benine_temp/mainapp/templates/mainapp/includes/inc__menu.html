@@ -6,7 +6,7 @@
         {% endif %}">
 {% if user.is_authenticated %}
        {% if user.is_superuser %}
-            <a href="{% url 'admin:users' %}" style="margin-left: -48px;">Admin</a>
+            <a href="{% url 'admin:users' 1 %}" style="margin-left: -48px;">Admin</a>
         {% endif %}
 
     <a href="{% url 'basket:view' %}"><img src="{% static '/img/cart.png' %}" style="width: 16px;"> Cart({{ b_count }}) Total: ${{ b_sum }}</a>
@@ -29,7 +29,7 @@
 <a href="{% url 'main:index' %}" class="{% if request.resolver_match.url_name == 'index' %}
     active_white !important;
     {% endif %}">HOME</a>
-<a href="{% url 'main:category_products' 0 %}" class="{% if request.resolver_match.url_name == 'category_products' %}
+<a href="{% url 'main:page' 0 1 %}" class="{% if request.resolver_match.url_name == 'page' or request.resolver_match.url_name == 'category_products' %}
     active_white !important
     {% endif %}">BUY</a>
 <a href="{% url 'main:contacts' %}" class="{% if request.resolver_match.url_name == 'contacts' %}

@@ -1,4 +1,4 @@
-{% extends 'authapp/base.html' %}
+{% extends 'adminapp/base.html' %}
 {% load staticfiles %}
 
 {% block container %}
@@ -8,7 +8,7 @@
     <input class="form-control" type="submit" value="Save">
   </form>
   <button class="btn btn-round form-control last">
-    <a href="{% url 'admin:categories' %}">
+    <a href="{% url 'admin:categories' 1 %}">
       Category list
     </a>
   </button>

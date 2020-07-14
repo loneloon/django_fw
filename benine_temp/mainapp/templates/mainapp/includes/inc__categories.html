@@ -1,13 +1,13 @@
 {% if not product %}
     <div class="prod_menu">
-        <a href="{% url 'main:category_products' 0 %}"><h3 id="c0" class="{% if request.resolver_match.kwargs.pk == 0 %}
+        <a href="{% url 'main:page' 0 1 %}"><h3 id="c0" class="{% if request.resolver_match.kwargs.pk == 0 %}
         active_white !important;
         {% endif %}">
             All</h3></a> <!-- active не работает -->
 
     {% for category in categories %}
 
-            <a href="{% url 'main:category_products' category.pk %}"><h3 id="c{{ category.id }}"
+            <a href="{% url 'main:category_products' category.pk 1 %}"><h3 id="c{{ category.id }}"
              class="{% if request.resolver_match.kwargs.pk == category.pk %}
         active_white !important;
         {% endif %}">

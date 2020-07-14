@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime
 import json
 from mainapp.models import ProductCategory, Product
@@ -15,6 +16,19 @@ def fetch_basket(request):
         basket = Basket.objects.filter(user=request.user)
 
     return basket
+
+
+def fetch_pages(page, content, offset):
+
+    paginator = Paginator(content, offset)
+    try:
+        pages = paginator.page(page)
+    except PageNotAnInteger:
+        pages = paginator.page(1)
+    except EmptyPage:
+        pages = paginator.page(paginator.num_pages)
+
+    return pages
 
 
 def fetch_amount(basket):
@@ -73,7 +87,7 @@ def products(request):
     return render(request, 'mainapp/products.html', context)
 
 
-def category_products(request, pk=None):
+def category_products(request, pk=None, page=1):
 
     basket = fetch_basket(request)
 
@@ -89,22 +103,24 @@ def category_products(request, pk=None):
             category = get_object_or_404(ProductCategory, pk=pk)
             products = Product.objects.filter(category__pk=pk).order_by('id')
 
+        products_paginator = fetch_pages(page, products, 3)
+
         context = {
-            'page_title': 'products',
-            'categories': categories,
-            'products': products,
-            'category': category,
-            'basket': basket,
-            'b_count': b_count,
-            'b_sum': b_sum,
-        }
+                    'page_title': 'products',
+                    'categories': categories,
+                    'products': products_paginator,
+                    'category': category,
+                    'basket': basket,
+                    'b_count': b_count,
+                    'b_sum': b_sum,
+                }
 
         return render(request, 'mainapp/products.html', context)
 
     return render(request, 'mainapp/products.html')
 
 
-def product_inspect(request, pk=None):
+def product_inspect(request, pk=None, last_page=None):
 
     basket = fetch_basket(request)
 
@@ -117,6 +133,7 @@ def product_inspect(request, pk=None):
             'page_title': 'products',
             'product': product,
             'basket': basket,
+            'last_page': last_page,
             'b_count': b_count,
             'b_sum': b_sum,
         }

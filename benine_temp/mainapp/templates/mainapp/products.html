@@ -21,7 +21,7 @@
 			<br><br>
 			{{ product.description }}
 		</p>
-		<div class='b_pack'><a href="{% url 'main:category_products' 0 %}"><div class='button-order back' style='margin: 10px;'>Back</div></a><a href="{% url 'basket:add_product' product.id %}"><div class='button-order' style='margin: 10px;'>Add to cart</div></a></div>
+		<div class='b_pack'><a href="{% url 'main:page' product.category.pk last_page %}"><div class='button-order back' style='margin: 10px;'>Back</div></a><a href="{% url 'basket:add_product' product.id %}"><div class='button-order' style='margin: 10px;'>Add to cart</div></a></div>
 	</div>
 
 	</div>
@@ -34,6 +34,18 @@
 	{% include 'mainapp/includes/inc__p_all.html' %}
 
 </table>
+	<div style="display: inline-block; align-items:center; justify-content:center; margin-top: -20px;">
+		<div style="float: left; text-align: right; margin-left: 100px;">
+			{% if products.has_previous %}
+	<a class="turner" href="{% url 'main:page' category.pk products.previous_page_number %}"><h2>Back</h2></a>
+			{% endif %}
+</div>
+<div style="float: right; text-align: right; margin-right: 100px;">
+	{% if products.has_next %}
+	<a class="turner" href="{% url 'main:page' category.pk products.next_page_number %}"><h2>Next</h2></a>
+	{% endif %}
+</div>
+	</div>
 <!-- <script src="/static/js/prod_action.js"></script> -->
 </div>
 {% endblock %}
