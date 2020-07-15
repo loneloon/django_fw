@@ -41,7 +41,7 @@ def users(request, page=1):
 
     users_list = ShopUser.objects.all().order_by('-is_active', '-is_superuser', '-is_staff', 'username')
 
-    users_list = fetch_pages(page=page, content=users_list, offset=1)
+    users_list = fetch_pages(page=page, content=users_list, offset=2)
 
     content = {
         'title': title,
@@ -112,7 +112,7 @@ def categories(request, page=1):
 
     categories_list = ProductCategory.objects.all()
 
-    categories_list = fetch_pages(page=page, content=categories_list, offset=1)
+    categories_list = fetch_pages(page=page, content=categories_list, offset=2)
 
     content = {
         'title': title,
