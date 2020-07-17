@@ -10,6 +10,9 @@ from adminapp.forms import ShopUserAdminEditForm, ProductCategoryEditForm, Produ
 
 from django.views.generic.list import ListView
 from django.utils.decorators import method_decorator
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views.generic.detail import DetailView
 
 
 def fetch_pages(page, content, offset):
@@ -33,6 +36,47 @@ class UsersListView(ListView):
     @method_decorator(user_passes_test(lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
+
+
+class ProductCategoryCreateView(CreateView):
+    model = ProductCategory
+    template_name = 'adminapp/cat_create.html'
+    success_url = reverse_lazy('admin:categories',
+                                                args=[1])
+    fields = '__all__'
+
+
+class ProductCategoryUpdateView(UpdateView):
+    model = ProductCategory
+    template_name = 'adminapp/cat_create.html'
+    success_url = reverse_lazy('admin:categories',
+                                                args=[1])
+    fields = '__all__'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Category:Update'
+
+        return context
+
+
+class ProductCategoryDeleteView(DeleteView):
+    model = ProductCategory
+    template_name = 'adminapp/cat_delete.html'
+    success_url = reverse_lazy('admin:categories',
+                                                args=[1])
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_active = False
+        self.object.save()
+
+        return HttpResponseRedirect(self.get_success_url())
+
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'adminapp/product_read.html'
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -96,7 +140,10 @@ def user_delete(request, pk):
     user = get_object_or_404(ShopUser, pk=pk)
 
     if request.method == 'POST':
-        user.delete()
+
+        # вместо удаления лучше сделаем неактивным
+        user.is_active = False
+        user.save()
 
         return HttpResponseRedirect(reverse('admin:users',
                                                 args=[1]))
@@ -167,7 +214,10 @@ def category_delete(request, pk):
     category = get_object_or_404(ProductCategory, pk=pk)
 
     if request.method == 'POST':
-        category.delete()
+
+        # вместо удаления лучше сделаем неактивным
+        category.is_active = False
+        category.save()
 
         return HttpResponseRedirect(reverse('admin:categories',
                                                 args=[1]))
@@ -252,7 +302,11 @@ def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk)
 
     if request.method == 'POST':
-        product.delete()
+
+        # вместо удаления лучше сделаем неактивным
+        product.is_active = False
+        product.save()
+
         return HttpResponseRedirect(reverse('admin:products',
                                             args=[product.category.pk, 1]))
 

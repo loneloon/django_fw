@@ -17,3 +17,4 @@ class Product(models.Model):
     image = models.ImageField('product image', upload_to='img/prods', blank=True)
     price = models.DecimalField('product price', max_digits=8, decimal_places=2, null=True)
     discount = models.IntegerField('current discount', default=0)
+    is_active = models.BooleanField(verbose_name='active', default=True)

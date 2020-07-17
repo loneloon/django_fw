@@ -8,18 +8,7 @@ from django.urls import reverse
 
 @login_required
 def basket(request):
-
-    basket = fetch_basket(request)
-
-    b_count, b_sum = fetch_amount(basket), fetch_sum(basket)
-
-    content = {
-        'page_title': 'cart',
-        'basket': basket,
-        'b_count': b_count,
-        'b_sum': b_sum,
-    }
-    return render(request, 'basketapp/cart.html', content)
+    return render(request, 'basketapp/cart.html')
 
 
 @login_required

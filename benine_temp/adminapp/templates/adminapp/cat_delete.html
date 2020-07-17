@@ -4,9 +4,9 @@
 
 {% block container %}
   <div class="user_delete">
-    Are you sure you want to delete '{{ cat_to_delete.name }}' category
+    Are you sure you want to delete '{{ object.name }}' category
     ?
-    <form action="{% url 'admin:category_delete' cat_to_delete.pk %}"
+    <form action="{% url 'admin:category_delete' object.pk %}"
           method="post">
       {% csrf_token %}
       <input class="btn btn-danger" type="submit" value="Delete">
