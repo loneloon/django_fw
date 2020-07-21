@@ -1,0 +1,29 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+{% block container %}
+
+    {% if user.is_authenticated %}
+<h2>Welcome to the b9 club!</h2>
+<p>Congratulations! Your profile has been successfully verified!</p>
+<div class="button_block">
+<a href="{% url 'main:index' %}"><div class="button-order">
+            Back to main
+            </div></a>
+<a href="{% url 'auth:edit' %}"><div class="button-order">
+            Profile
+            </div></a>
+    </div>
+    {% else %}
+<h2>Oh no!</h2>
+<p>Something went wrong!<br>
+    Your verification key might be expired or simply incorrect</p>
+
+    <div class="button_block">
+    <a href="{% url 'main:index' %}"><div class="button-order">
+            Back to main
+            </div></a>
+    </div>
+    {% endif %}
+
+{% endblock %}

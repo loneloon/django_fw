@@ -29,13 +29,20 @@ def fetch_pages(page, content, offset):
     return pages
 
 
-class UsersListView(ListView):
+class SuperUserOnly:
+    @method_decorator(user_passes_test(lambda u: u.is_superuser))
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+
+class UsersListView(SuperUserOnly, ListView):
     model = ShopUser
     template_name = 'adminapp/users.html'
 
-    @method_decorator(user_passes_test(lambda u: u.is_superuser))
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
+    def get_queryset(self):
+        qs = super().get_queryset()
+        result = qs.order_by('-is_active', '-is_superuser')
+        return result
 
 
 class ProductCategoryCreateView(CreateView):
@@ -79,20 +86,20 @@ class ProductDetailView(DetailView):
     template_name = 'adminapp/product_read.html'
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def users(request, page=1):
-    title = 'Admin:Users'
-
-    users_list = ShopUser.objects.all().order_by('-is_active', '-is_superuser', '-is_staff', 'username')
-
-    users_list = fetch_pages(page=page, content=users_list, offset=2)
-
-    content = {
-        'title': title,
-        'objects': users_list
-    }
-
-    return render(request, 'adminapp/users.html', content)
+# @user_passes_test(lambda u: u.is_superuser)
+# def users(request, page=1):
+#     title = 'Admin:Users'
+#
+#     users_list = ShopUser.objects.all().order_by('-is_active', '-is_superuser', '-is_staff', 'username')
+#
+#     users_list = fetch_pages(page=page, content=users_list, offset=2)
+#
+#     content = {
+#         'title': title,
+#         'objects': users_list
+#     }
+#
+#     return render(request, 'adminapp/users.html', content)
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -169,62 +176,62 @@ def categories(request, page=1):
     return render(request, 'adminapp/categories.html', content)
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def category_create(request):
-    title = 'Category:Create'
+# @user_passes_test(lambda u: u.is_superuser)
+# def category_create(request):
+#     title = 'Category:Create'
+#
+#     if request.method == 'POST':
+#         cat_form = ProductCategoryEditForm(request.POST, request.FILES)
+#         if cat_form.is_valid():
+#             cat_form.save()
+#             return HttpResponseRedirect(reverse('admin:categories',
+#                                                 args=[1]))
+#     else:
+#         cat_form = ProductCategoryEditForm()
+#
+#     content = {'title': title, 'cat_form': cat_form}
+#
+#     return render(request, 'adminapp/cat_create.html', content)
 
-    if request.method == 'POST':
-        cat_form = ProductCategoryEditForm(request.POST, request.FILES)
-        if cat_form.is_valid():
-            cat_form.save()
-            return HttpResponseRedirect(reverse('admin:categories',
-                                                args=[1]))
-    else:
-        cat_form = ProductCategoryEditForm()
+#
+# @user_passes_test(lambda u: u.is_superuser)
+# def category_update(request, pk):
+#     title = 'Category:Update'
+#
+#     edit_cat = get_object_or_404(ProductCategory, pk=pk)
+#     if request.method == 'POST':
+#         edit_form = ProductCategoryEditForm(request.POST, request.FILES,
+#                                           instance=edit_cat)
+#         if edit_form.is_valid():
+#             edit_form.save()
+#             return HttpResponseRedirect(reverse('admin:categories',
+#                                                 args=[1]))
+#     else:
+#         edit_form = ProductCategoryEditForm(instance=edit_cat)
+#
+#     content = {'title': title, 'cat_form': edit_form}
+#
+#     return render(request, 'adminapp/cat_create.html', content)
 
-    content = {'title': title, 'cat_form': cat_form}
-
-    return render(request, 'adminapp/cat_create.html', content)
-
-
-@user_passes_test(lambda u: u.is_superuser)
-def category_update(request, pk):
-    title = 'Category:Update'
-
-    edit_cat = get_object_or_404(ProductCategory, pk=pk)
-    if request.method == 'POST':
-        edit_form = ProductCategoryEditForm(request.POST, request.FILES,
-                                          instance=edit_cat)
-        if edit_form.is_valid():
-            edit_form.save()
-            return HttpResponseRedirect(reverse('admin:categories',
-                                                args=[1]))
-    else:
-        edit_form = ProductCategoryEditForm(instance=edit_cat)
-
-    content = {'title': title, 'cat_form': edit_form}
-
-    return render(request, 'adminapp/cat_create.html', content)
-
-
-@user_passes_test(lambda u: u.is_superuser)
-def category_delete(request, pk):
-    title = 'Category:Remove'
-
-    category = get_object_or_404(ProductCategory, pk=pk)
-
-    if request.method == 'POST':
-
-        # вместо удаления лучше сделаем неактивным
-        category.is_active = False
-        category.save()
-
-        return HttpResponseRedirect(reverse('admin:categories',
-                                                args=[1]))
-
-    content = {'title': title, 'cat_to_delete': category}
-
-    return render(request, 'adminapp/cat_delete.html', content)
+#
+# @user_passes_test(lambda u: u.is_superuser)
+# def category_delete(request, pk):
+#     title = 'Category:Remove'
+#
+#     category = get_object_or_404(ProductCategory, pk=pk)
+#
+#     if request.method == 'POST':
+#
+#         # вместо удаления лучше сделаем неактивным
+#         category.is_active = False
+#         category.save()
+#
+#         return HttpResponseRedirect(reverse('admin:categories',
+#                                                 args=[1]))
+#
+#     content = {'title': title, 'cat_to_delete': category}
+#
+#     return render(request, 'adminapp/cat_delete.html', content)
 
 
 @user_passes_test(lambda u: u.is_superuser)

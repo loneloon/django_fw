@@ -1,4 +1,5 @@
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -6,6 +7,9 @@ from django.urls import reverse
 from authapp.forms import ShopUserLoginForm
 from authapp.forms import ShopUserRegistrationForm
 from authapp.forms import ShopUserEditForm
+
+from authapp.models import ShopUser
+
 
 def login(request):
     if request.method == 'POST':
@@ -28,6 +32,7 @@ def login(request):
     return render(request, 'authapp/login.html', context)
 
 
+@login_required
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('main:index'))
@@ -40,8 +45,13 @@ def register(request):
         register_form = ShopUserRegistrationForm(request.POST, request.FILES)
 
         if register_form.is_valid():
-            register_form.save()
-            return HttpResponseRedirect(reverse('auth:login'))
+            user = register_form.save()
+            if user.send_verify_mail():
+                print('Verification mail sent!')
+        else:
+            print('Mail was not sent. Error.')
+        return HttpResponseRedirect(reverse('auth:login'))
+
     else:
         register_form = ShopUserRegistrationForm()
 
@@ -50,6 +60,7 @@ def register(request):
     return render(request, 'authapp/register.html', content)
 
 
+@login_required
 def edit(request):
     title = 'Profile Edit'
 
@@ -66,3 +77,18 @@ def edit(request):
 
     return render(request, 'authapp/edit.html', content)
 
+
+def verify(request, email, activation_key):
+    try:
+        user = ShopUser.objects.get(email=email)
+        if user.activation_key == activation_key and not user.is_activation_key_expired():
+            user.is_active = True
+            user.save()
+            auth.login(request, user)
+            return render(request, 'authapp/verification.html')
+        else:
+            print(f'user verification error: {user}')
+            return render(request, 'authapp/verification.html')
+    except Exception as e:
+        print(f'user verification error: {e.args}')
+        return HttpResponseRedirect(reverse('main'))

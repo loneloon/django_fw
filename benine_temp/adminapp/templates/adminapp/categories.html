@@ -15,7 +15,7 @@
         {% endif %}">
 
         <div class="category_name">
-          {{ object.name|title }}
+          {{ object.name|title }} {% if not object.is_active %}<p style="color: red; margin-bottom: -20px; margin-left: 0; padding-left: 0;">DELETED</p>{% endif %}
         </div>
         <div class="category_actions">
           <div class="button_block2">

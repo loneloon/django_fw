@@ -38,6 +38,18 @@ class ShopUserRegistrationForm(UserCreationForm):
 
         return data
 
+    def save(self, commit=True):
+        import hashlib, random
+
+        user = super().save()
+
+        user.is_active = False
+
+        salt = hashlib.sha256(str(random.randint(100000, 999999)).encode('utf-8')).hexdigest()[:6]
+        user.activation_key = hashlib.sha256((salt + user.email).encode('utf-8')).hexdigest()
+        user.save()
+
+        return user
 
 
 class ShopUserEditForm(UserChangeForm):

@@ -78,7 +78,7 @@ def products(request):
 def category_products(request, pk=None, page=1):
 
 
-    categories = ProductCategory.objects.all()
+    categories = ProductCategory.objects.filter(is_active=True)
 
     if pk is not None:
         if pk == 0:

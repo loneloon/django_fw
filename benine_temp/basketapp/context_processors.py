@@ -5,11 +5,12 @@ def basket(request):
 
     if request.user.is_authenticated:
         basket = fetch_basket(request)
-        b_count, b_sum = fetch_amount(basket), fetch_sum(basket)
+
 
     else:
         basket = []
-        b_count, b_sum = fetch_amount(basket), fetch_sum(basket)
+
+    b_count, b_sum = fetch_amount(basket), fetch_sum(basket)
 
     return {
         'basket': basket,
