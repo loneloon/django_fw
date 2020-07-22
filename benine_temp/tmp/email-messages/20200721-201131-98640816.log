@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0J/QvtC00YLQstC10YDQttC00LXQvdC40LUg0YPRh9C10YLQvdC+0Lkg0LfQsNC/?=
+ =?utf-8?b?0LjRgdC4IGh1Z282Nzg=?=
+From: django@geekshop.local
+To: hugo@gb.local
+Date: Tue, 21 Jul 2020 17:11:31 -0000
+Message-ID: <159535149132.8248.4347376240088771580@DESKTOP-NOH1LON>
+
+Для подтверждения учетной записи hugo678 на портале http://localhost:8000 перейдите по ссылке: 
+http://localhost:8000/auth/verification/hugo@gb.local/b72ee5e5e65e81dcdceeb5d3a02c48b63f5e8ed3b456fbac63bd12decc02e009/
+-------------------------------------------------------------------------------
