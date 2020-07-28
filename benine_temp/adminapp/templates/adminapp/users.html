@@ -19,7 +19,7 @@
           {% if object.is_superuser %}
             Admin
           {% else %}
-          User {% if not object.is_active %}<div style="color: red; margin-top: 10px; font-family: sans-serif;">DELETED</div>{% endif %}
+          User {% if not object.is_active %}<div style="color: red; margin-top: 10px; font-family: sans-serif;">INACTIVE</div>{% endif %}
           {% endif %}
           </div>
           <div class="button_block2">
@@ -29,15 +29,12 @@
             </a>
           </button>
 
-          {% if object.is_active %}
-
-          <button class="button-order" style="background-color: red; padding: 4px; width: 77px; height: 27px; margin-left: 0px; margin-right: 20px; margin-top: 10px; border-style: solid; border-width: 0px; border-radius: 5px;">
+          <button class="button-order" style="background-color: red; padding: 4px; {% if not object.is_active %}width: 77px;{% else %}width: 117px;{% endif %} height: 27px; margin-left: 0px; margin-right: 20px; margin-top: 10px; border-style: solid; border-width: 0px; border-radius: 5px;">
             <a href={% url 'admin:user_delete' object.pk %}>
-              Delete
+              {% if not object.is_active %}delete{% else %}deactivate{% endif %}
             </a>
           </button>
 
-          {% endif %}
             </div>
 
         <div class="user_name">

@@ -45,7 +45,7 @@ class UsersListView(SuperUserOnly, ListView):
         return result
 
 
-class ProductCategoryCreateView(CreateView):
+class ProductCategoryCreateView(SuperUserOnly, CreateView):
     model = ProductCategory
     template_name = 'adminapp/cat_create.html'
     success_url = reverse_lazy('admin:categories',
@@ -53,7 +53,7 @@ class ProductCategoryCreateView(CreateView):
     fields = '__all__'
 
 
-class ProductCategoryUpdateView(UpdateView):
+class ProductCategoryUpdateView(SuperUserOnly, UpdateView):
     model = ProductCategory
     template_name = 'adminapp/cat_create.html'
     success_url = reverse_lazy('admin:categories',
@@ -67,7 +67,7 @@ class ProductCategoryUpdateView(UpdateView):
         return context
 
 
-class ProductCategoryDeleteView(DeleteView):
+class ProductCategoryDeleteView(SuperUserOnly, DeleteView):
     model = ProductCategory
     template_name = 'adminapp/cat_delete.html'
     success_url = reverse_lazy('admin:categories',
@@ -75,13 +75,16 @@ class ProductCategoryDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
-        self.object.is_active = False
-        self.object.save()
+        if self.object.is_active:
+            self.object.is_active = False
+            self.object.save()
+        else:
+            self.object.delete()
 
         return HttpResponseRedirect(self.get_success_url())
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(SuperUserOnly, DetailView):
     model = Product
     template_name = 'adminapp/product_read.html'
 
@@ -149,8 +152,11 @@ def user_delete(request, pk):
     if request.method == 'POST':
 
         # вместо удаления лучше сделаем неактивным
-        user.is_active = False
-        user.save()
+        if user.is_active:
+            user.is_active = False
+            user.save()
+        else:
+            user.delete()
 
         return HttpResponseRedirect(reverse('admin:users',
                                                 args=[1]))
@@ -271,13 +277,13 @@ def product_create(request, pk):
 
     return render(request, 'adminapp/prod_create.html', content)
 
-
-def product_read(request, pk):
-    title = 'Product:Inspect'
-    product = get_object_or_404(Product, pk=pk)
-    content = {'title': title, 'object': product, }
-
-    return render(request, 'adminapp/product_read.html', content)
+#
+# def product_read(request, pk):
+#     title = 'Product:Inspect'
+#     product = get_object_or_404(Product, pk=pk)
+#     content = {'title': title, 'object': product, }
+#
+#     return render(request, 'adminapp/product_read.html', content)
 
 
 def product_update(request, pk):

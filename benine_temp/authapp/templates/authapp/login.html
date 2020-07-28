@@ -15,13 +15,16 @@
         {{ form.as_p }}
         <br>
 
-        <div class="button_block">
+            <div class="button_block">
 
-            <div><input class="button-order form-control" type="submit" value="Sign In"></div>
-            <a href="{% url 'auth:register' %}"><div class="button-order">
+            <div><input class="button-order form-control" type="submit" value="Sign In"  style="margin-left: 14px; margin-right: 14px; width: 117px;"></div>
+            <a href="{% url 'auth:register' %}"><div class="button-order"  style="margin-left: 14px; margin-right: 14px;">
             Register
             </div></a>
 
+            <a href="{% url 'social:begin' 'vk-oauth2' %}?next=/"><img src="{% static 'img/vk.png' %}" style="width: 45px; margin: 0; padding-right: 5px; padding-left: 5px;"/></a>
+                <a href="{% url 'social:begin' 'google-oauth2' %}?next=/"><img src="{% static 'img/g+.png' %}" style="width: 45px; margin: 0; padding-right: 5px; padding-left: 5px;"/>
+            </a>
         </div>
 
 

@@ -4,12 +4,12 @@
 
 {% block container %}
   <div class="user_delete">
-    Are you sure you want to delete '{{ object.name }}' category
+    Are you sure you want to {% if not object.is_active %}delete{% else %}deactivate{% endif %} '{{ object.name }}' category
     ?
     <form action="{% url 'admin:category_delete' object.pk %}"
           method="post">
       {% csrf_token %}
-      <input class="btn btn-danger" type="submit" value="Delete">
+      <input class="btn btn-danger" type="submit" value="{% if not object.is_active %}Delete{% else %}Deactivate{% endif %}">
     </form>
     <button class="btn btn-success">
       <a href="{% url 'admin:categories' 1 %}">

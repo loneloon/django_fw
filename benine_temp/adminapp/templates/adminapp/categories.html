@@ -15,7 +15,7 @@
         {% endif %}">
 
         <div class="category_name">
-          {{ object.name|title }} {% if not object.is_active %}<p style="color: red; margin-bottom: -20px; margin-left: 0; padding-left: 0;">DELETED</p>{% endif %}
+          {{ object.name|title }} {% if not object.is_active %}<p style="color: red; margin-bottom: -20px; margin-left: 0; padding-left: 0;">INACTIVE</p>{% endif %}
         </div>
         <div class="category_actions">
           <div class="button_block2">
@@ -31,7 +31,7 @@
           </div>
           <div class="button-order" style="background-color: white; padding: 4px; width: 150px; height: 27px; margin-left: 0px; margin-right: 10px; margin-top: 20px; border-style: solid; border-width: 0px; color: #000000; border-radius: 5px;">
             <a href="{% url 'admin:category_delete' object.pk %}">
-              delete
+              {% if not object.is_active %}delete{% else %}deactivate{% endif %}
             </a>
           </div>
           </div>

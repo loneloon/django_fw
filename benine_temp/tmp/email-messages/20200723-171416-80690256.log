@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0J/QvtC00YLQstC10YDQttC00LXQvdC40LUg0YPRh9C10YLQvdC+0Lkg0LfQsNC/?=
+ =?utf-8?b?0LjRgdC4IHZpbmNlODY=?=
+From: django@geekshop.local
+To: v8@gb.local
+Date: Thu, 23 Jul 2020 14:14:16 -0000
+Message-ID: <159551365602.11052.3481746132427988055@DESKTOP-NOH1LON>
+
+Для подтверждения учетной записи vince86 на портале http://localhost:8000 перейдите по ссылке: 
+http://localhost:8000/auth/verification/v8@gb.local/ae77b9def7d5f3ccdb97d03c2ece9e03babc6d8e3795779d3a2afd5953354fff/
+-------------------------------------------------------------------------------

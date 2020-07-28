@@ -9,6 +9,8 @@ from django.utils.timezone import now
 from django.urls import reverse
 
 
+
+
 def get_expiration_date():
     return now() + timedelta(hours=48)
 
@@ -33,3 +35,27 @@ class ShopUser(AbstractUser):
         message = f'Для подтверждения учетной записи {self.username} на портале {settings.DOMAIN_NAME} перейдите по ссылке: \n{settings.DOMAIN_NAME}{verify_link}'
 
         return send_mail(title, message, settings.EMAIL_HOST_USER, [self.email], fail_silently=False)
+
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+
+
+
+class ShopUserProfile(models.Model):
+    MALE = 'M'
+    FEMALE = 'W'
+
+    GENDER_CHOICES = (
+        (MALE, 'M'),
+        (FEMALE, 'F'),
+    )
+
+    user = models.OneToOneField(ShopUser, primary_key=True, null=False,
+                                db_index=True, on_delete=models.CASCADE)
+    tagline = models.CharField(verbose_name='tags', max_length=128,
+                               blank=True)
+    aboutMe = models.TextField(verbose_name='about', max_length=512,
+                               blank=True)
+    gender = models.CharField(verbose_name='gender', max_length=1,
+                              choices=GENDER_CHOICES, blank=True)
+
