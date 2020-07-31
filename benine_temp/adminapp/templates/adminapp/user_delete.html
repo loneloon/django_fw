@@ -15,7 +15,7 @@
     <form action="{% url 'admin:user_delete' user_to_delete.pk %}"
           method="post">
       {% csrf_token %}
-      <input class="btn btn-danger" type="submit" value="Delete">
+      <input class="btn btn-danger" type="submit" value="{% if not user_to_delete.is_active %}Delete{% else %}Deactivate{% endif %}">
     </form>
     <button class="btn btn-success">
       <a href="{% url 'admin:users' 1 %}">

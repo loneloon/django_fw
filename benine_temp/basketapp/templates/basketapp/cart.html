@@ -42,8 +42,24 @@
       <td style="border-style: none; padding-left: 0; text-align: center;">${{ b_sum }}</td>
       </tr>
 
-{% endif %}
+
 
   </table>
 
+
+{% endif %}
+
+{% endblock %}
+
+{% block extra %}
+{% if basket %}
+<div class="button_block">
+    <a href="{% url 'orders:order_create' %}"><div class="button-order"  style="margin-left: 14px; margin-right: 14px;">
+            Check out
+            </div></a>
+    <a href="{% url 'basket:clear' %}"><div class="button-order"  style="margin-left: 14px; margin-right: 14px;">
+            Clear all
+            </div></a>
+</div>
+{% endif %}
 {% endblock %}

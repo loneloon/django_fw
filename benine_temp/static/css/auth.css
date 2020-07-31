@@ -358,3 +358,19 @@ form {
 .turner h2:hover  {
     color: #FFFFFF;
 }
+
+.table a:link {
+color: white;
+}
+
+.table a:visited {
+color: white;
+}
+
+.delete-row a:link {
+color: red;
+}
+
+.delete-row a:visited {
+color: red;
+}

@@ -9,8 +9,6 @@ from django.utils.timezone import now
 from django.urls import reverse
 
 
-
-
 def get_expiration_date():
     return now() + timedelta(hours=48)
 

@@ -154,6 +154,8 @@ ul {
 
 table {
     border-collapse: collapse;
+    border-style-bottom: solid;
+    border-width: 1px;
 }
 
 

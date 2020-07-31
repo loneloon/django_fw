@@ -4,20 +4,51 @@
     <div class="auth_pad" style="{% if user.is_authenticated %}
         margin-left: 168px;
         {% endif %}">
-{% if user.is_authenticated %}
-       {% if user.is_superuser %}
-            <a href="{% url 'admin:users' 1 %}" style="margin-left: -48px;">Admin</a>
-        {% endif %}
+<!--{% if user.is_authenticated %}-->
+<!--       {% if user.is_superuser %}-->
+<!--            <a href="{% url 'admin:users' 1 %}" style="margin-left: -48px;">Admin</a>-->
+<!--        {% endif %}-->
 
-    <a href="{% url 'basket:view' %}"><img src="{% static '/img/cart.png' %}" style="width: 16px;"> Cart({{ b_count }}) Total: ${{ b_sum }}</a>
-    <a href="{% url 'auth:edit' %}">
-        {{ user.first_name|default:'Profile' }}
-    </a>
+<!--    <a href="{% url 'basket:view' %}"><img src="{% static '/img/cart.png' %}" style="width: 16px;"> Cart({{ b_count }}) Total: ${{ b_sum }}</a>-->
+<!--    <a href="{% url 'auth:edit' %}">-->
+<!--        {{ user.first_name|default:'Profile' }}-->
+<!--    </a>-->
+<!--        {% endif %}-->
+
+{% if user.is_authenticated %}
+
+        {% if user.is_superuser %}
+       <li>
+           <a href="{% url 'admin:users' 0 %}">Admin</a>
+       </li>
+    {% endif %}
+
+
+        <a href="{% url 'basket:view' %}"><img src="{% static '/img/cart.png' %}" style="width: 16px;"> Cart({{ b_count }}) Total: ${{ b_sum }}</a>
+
+
+       <div class="dropdown">
+           <div class="dropbtn" onclick="dropMenu()">{{ user.first_name|default:'Profile' }}</div>
+           <div class="dropdown-content" id="d_menu">
+
+
+                   <a href="{% url 'auth:edit' %}">
+                       Profile
+                   </a>
+                   <a href="{% url 'ordersapp:orders_list' %}">
+                        Orders
+                   </a>
+       </div>
+       </div>
+
+
+
+
 {% else %}
     <a href="{% url 'auth:register' %}">Register</a>
 
 {% endif %}
-    {% if user.is_authenticated %}
+{% if user.is_authenticated %}
 	<a href="{% url 'auth:logout' %}">Sign Out</a>
     {% else %}
 	<a href="{% url 'auth:login' %}">Sign In</a>
@@ -38,3 +69,5 @@
 </div>
 
 </div>
+
+<script src="{% static '/js/menu.js' %}"></script>
