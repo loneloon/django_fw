@@ -19,3 +19,7 @@ class Product(models.Model):
     discount = models.IntegerField('current discount', default=0)
     is_active = models.BooleanField(verbose_name='active', default=True)
     stock = models.IntegerField('stock', default=0)
+
+    @staticmethod
+    def get_items():
+        return Product.objects.filter(category__is_active=True, is_active=True).order_by('category', 'name')

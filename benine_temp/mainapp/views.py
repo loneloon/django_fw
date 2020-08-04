@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime
@@ -140,3 +141,14 @@ def contacts(request):
     return render(request, 'mainapp/contacts.html', context)
 
 
+def product_detail_async(request, pk):
+    if request.is_ajax():
+        try:
+            product = Product.objects.get(pk=pk)
+            return JsonResponse({
+                'product_price': product.price
+            })
+        except Exception as e:
+            return JsonResponse({
+                'error': str(e)
+            })

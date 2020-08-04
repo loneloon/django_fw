@@ -16,8 +16,8 @@ let $orderForm;
 
 function parseOrderForm() {
     for (let i = 0; i < totalForms; i++) {
-        _quantity = parseInt($('input[name="orderitems-' + i + '-quantity"]').val());
-        _price = parseFloat($('.orderitems-' + i + '-price').text().replace(',', '.'));
+        _quantity = parseInt($('input[name="orderitem-' + i + '-quantity"]').val());
+        _price = parseFloat($('.orderitem-' + i + '-price').text().replace(',', '.'));
         quantityArr[i] = _quantity;
         priceArr[i] = (_price) ? _price : 0;
     }
@@ -34,7 +34,7 @@ function orderSummaryUpdate(orderitemPrice, deltaQuantity) {
 
 function deleteOrderItem(row) {
     let targetName = row[0].querySelector('input[type="number"]').name;
-    orderitemNum = parseInt(targetName.replace('orderitems-', '').replace('-quantity', ''));
+    orderitemNum = parseInt(targetName.replace('orderitem-', '').replace('-quantity', ''));
     deltaQuantity = -quantityArr[orderitemNum];
     orderSummaryUpdate(priceArr[orderitemNum], deltaQuantity);
 }
@@ -46,11 +46,12 @@ function updateTotalQuantity() {
     }
     $orderTotalQuantityDOM.html(orderTotalQuantity.toString());
     $('.order_total_cost').html(Number(orderTotalCost.toFixed(2)).toString());
+
 }
 
 window.onload = function () {
     $orderTotalQuantityDOM = $('.order_total_quantity');
-    totalForms = parseInt($('input[name="orderitems-TOTAL_FORMS"]').val());
+    totalForms = parseInt($('input[name="orderitem-TOTAL_FORMS"]').val());
     orderTotalQuantity = parseInt($orderTotalQuantityDOM.text()) || 0;
     orderTotalCost = parseFloat($('.order_total_cost').text().replace(',', '.')) || 0;
     $orderForm = $('.order_form');
@@ -62,17 +63,18 @@ window.onload = function () {
     }
 
     $orderForm.on('change', 'input[type="number"]', function (event) {
-        orderitemNum = parseInt(event.target.name.replace('orderitems-', '').replace('-quantity', ''));
+        orderitemNum = parseInt(event.target.name.replace('orderitem-', '').replace('-quantity', ''));
         if (priceArr[orderitemNum]) {
             orderitemQuantity = parseInt(event.target.value);
             deltaQuantity = orderitemQuantity - quantityArr[orderitemNum];
             quantityArr[orderitemNum] = orderitemQuantity;
             orderSummaryUpdate(priceArr[orderitemNum], deltaQuantity);
         }
+
     });
 
     $orderForm.on('change', 'input[type="checkbox"]', function (event) {
-        orderitemNum = parseInt(event.target.name.replace('orderitems-', '').replace('-DELETE', ''));
+        orderitemNum = parseInt(event.target.name.replace('orderitem-', '').replace('-DELETE', ''));
         if (event.target.checked) {
             deltaQuantity = -quantityArr[orderitemNum];
         } else {
@@ -84,13 +86,36 @@ window.onload = function () {
     $('.formset_row').formset({
         addText: 'Add product',
         deleteText: 'Delete',
-        prefix: 'orderitems',
+        prefix: 'orderitem',
         removed: deleteOrderItem
     });
 
     $orderForm.on('change', 'select', function (event) {
-        let target = event.target;
-        console.log(target);
+        let oderItemIndex = parseInt(event.target.name.replace('orderitem-', '').replace('-product'));
+        let productPk = event.target.value;
+
+        $.ajax({
+            url: '/product/detail/' + productPk + '/async/',
+            success: function (data) {
+
+                priceArr[oderItemIndex] = parseFloat(data.product_price);
+                if (isNaN(quantityArr[oderItemIndex])) {
+                    quantityArr[oderItemIndex] = 0;
+                }
+                let priceHtml = '<span>' +
+                    data.product_price.toString().replace('.', ',') +
+                    '</span> $';
+                let currentTR = $('.order_form table').find('tr:eq(' + (oderItemIndex + 1) + ')');
+                currentTR.find('td:eq(2)').html(priceHtml);
+                let $productQuantity = currentTR.find('input[type="number"]');
+                if (!$productQuantity.val() || isNaN($productQuantity.val())) {
+                    $productQuantity.val(0);
+                }
+                orderSummaryUpdate(
+                    priceArr[oderItemIndex],
+                    parseInt($productQuantity.val()));
+            }
+        });
     });
 
 };

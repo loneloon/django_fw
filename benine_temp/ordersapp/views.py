@@ -17,7 +17,7 @@ class OrderList(ListView):
    model = Order
 
    def get_queryset(self):
-       return Order.objects.filter(user=self.request.user)
+       return self.request.user.order_set.all()
 
 
 # 7 min -> 20:05 AIR

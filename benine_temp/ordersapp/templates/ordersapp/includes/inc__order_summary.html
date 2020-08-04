@@ -21,11 +21,11 @@
        <div class="h4">
            Total amount:
        <span class="order_total_quantity">
-           {{ object.get_total_quantity }}
+           {{ basket.0.total_quantity }}
        </span>
        <div class="h3">
            Total price: <span class="order_total_cost">
-           {{ object.get_total_cost }}
+           {{ basket.0.total_cost  }}
        </span> $
        </div>
    {% endif %}
