@@ -1,0 +1,376 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {font-family: pixel_f; src: url('/static/fonts/Fixedsys.ttf');}
+@font-face {font-family: digital_c; src: url('/static/fonts/VCR_OSD_MONO.ttf');}
+
+body {
+	color: #FFFFFF;
+	background-color: #100b0f;
+	margin-top: 3vh;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+.log_box {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content:center;
+	align-content:center;
+    margin-top: -30px;
+	text-align: left;
+    width: 480px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+.log_box.wide {
+    width: 640px;
+}
+
+.users_list{
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+.user_record {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    float: left;
+}
+
+.category_record {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.product_name{
+   padding: 10px;
+   font-size: 22px;
+}
+
+.product_record {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.product_record img {
+    margin-left: 10px !important;
+}
+
+.summary p {
+    padding-left: 10px;
+}
+
+.log_box a {
+    color: black;
+}
+
+.log_box a:link {
+    color: black;
+}
+
+.log_box a:visited {
+    color: black;
+}
+
+.category_desc {
+    padding: 10px;
+}
+
+.category_name {
+    font-size: 22px;
+    padding: 10px;
+}
+
+
+.user_record p {
+    padding-left: 10px;
+
+}
+
+.user_role {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.user_name {
+    padding-left: 10px;
+}
+
+.user_age {
+    padding-left: 10px;
+}
+
+.user_email {
+    padding-left: 10px;
+}
+
+.user_lastlogin {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.log_box img {
+    margin-left: 35px;
+    margin-top: 10px;
+    width: 150px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+a:link{
+    color: orange;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+header {
+	text-align: center;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	
+}
+
+.adm_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+	margin-right: 13px;
+	font-family: pixel_f;
+	font-size: 44px;
+}
+
+.adm_menu a {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.logo {
+	float: left;
+	margin-left: 0px;
+	margin-bottom: 60px;
+	padding-right: 30px;
+}
+
+h2 {
+    font-family: pixel_f;
+    font-size: 34px;
+    padding: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: auto 0;
+    color: #000000;
+    text-align: center;
+    background-color: blueviolet;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-color: #A923DF;
+}
+
+
+input {
+    border-style: none;
+}
+
+
+.button-order {
+	background-color:  #02b987;
+	box-shadow: 0px 2px 4.85px 0.15px rgba(33, 33, 33, 0.35);
+	width: 150px;
+	height: 45px;
+	display: flex;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 22px;
+	text-decoration: none;
+	color:  #212121;
+	font-size: 14px;
+	font-weight: 700;
+	font-family: sans-serif;
+	line-height: 45px;
+	margin-top: 32px;
+	letter-spacing: 1px;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	justify-content:center;
+	align-items:center;
+
+}
+
+
+.button-order:hover {
+	background-color:  #FFFFFF;
+	cursor: pointer;
+}
+.button-order:active {
+	box-shadow: none;
+
+}
+.button-order img{
+	padding-left: 22px;
+}
+
+.button_block{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 25px;
+    justify-content:center;
+	align-items:center;
+	margin-top: 15px;
+}
+
+.button_block2{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 10px;
+    justify-content:flex-start;
+	align-items:center;
+}
+
+ul {
+    width: 300px;
+    font-size: 0.8em;
+    border-style: solid;
+    border-radius: 16px;
+    background-color: blueviolet;
+    border-width: 0;
+    padding: 10px;
+    padding-right: 0px;
+    padding-left: 15px;
+    margin-left: -25px;
+    list-style: none;
+    color: black;
+
+}
+
+.user_pic img {
+
+}
+
+p {
+    font-family: sans-serif;
+    line-height: 30px;
+    margin: 5px;
+    padding-left: 30px;
+    text-align: left;
+    width: 400px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.auth_pad {
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-family: pixel_f;
+    font-size: 16px;
+    padding-bottom: 30px;
+    padding-right:95px;
+    text-align: right;
+    list-style: none;
+    border-style: none;
+    border-width: 0px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    margin-left: 338px;
+    color: cadetblue;
+    border-collapse: collapse;
+}
+
+
+.auth_pad a:link{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.auth_pad a:link img {
+    padding-right: 4px;
+}
+
+.auth_pad a:visited{
+    align-content: center;
+    justify-content: center;
+    color: #000000;
+    text-decoration: none;
+}
+
+.auth_pad a:hover{
+    align-content: center;
+    justify-content: center;
+    background-color: chartreuse;
+    text-decoration: none;
+}
+
+
+
+.turner h2 {
+    color: blueviolet;
+    font-size: 28px;
+    background-color: transparent;
+}
+
+
+.turner h2:hover  {
+    color: #FFFFFF;
+}
+
+.table a:link {
+color: white;
+}
+
+.table a:visited {
+color: white;
+}
+
+.delete-row a:link {
+color: red;
+}
+
+.delete-row a:visited {
+color: red;
+}

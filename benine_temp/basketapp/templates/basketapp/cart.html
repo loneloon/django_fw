@@ -4,7 +4,7 @@
 {% block header %}
 
 <h2 style="display: flex; justify-content: center; align-content: center;">
-           <img src="{% static '/img/cart.png' %}" style="border-style: none; width: 34px; margin-left:-30px; margin-top:0; padding-right: 20px;"/> Shopping Cart:
+           <img src="{% static 'img/cart.png' %}" style="border-style: none; width: 34px; margin-left:-30px; margin-top:0; padding-right: 20px;"/> Shopping Cart:
 </h2>
 
 {% endblock %}
@@ -20,7 +20,7 @@
     <th>Price</th>
     <th style="border-right-style: none;"></th>
       {% else %}
-      <th style="display: flex; justify-content: center; align-content: center; padding: 40px;"><h3>Hmm... Your cart is empty!</h3><img src="{% static '/img/hmm.png' %}" style="border-style: none; width: 60px;"/></th>
+      <th style="display: flex; justify-content: center; align-content: center; padding: 40px;"><h3>Hmm... Your cart is empty!</h3><img src="{% static 'img/hmm.png' %}" style="border-style: none; width: 60px;"/></th>
 
       {% endif %}
 

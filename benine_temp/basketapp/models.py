@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from mainapp.models import Product
-
+from pip.utils import cached_property
 
 # class BasketQuerySet(models.QuerySet):
 #
@@ -20,20 +20,27 @@ class Basket(models.Model):
     quantity = models.PositiveIntegerField(verbose_name='Amount', default=0)
     add_datetime = models.DateTimeField(verbose_name='Time', auto_now_add=True)
 
-    @property
+    @cached_property
+    def get_items_cached(self):
+    	return self.user.basket.select_related().all()
+
+    # @property
+    @cached_property
     def product_cost(self):
 
         return self.product.price * self.quantity
 
     @property
+    # @cached_property
     def total_quantity(self):
 
-        return sum(map(lambda x: x.quantity, self.user.basket.all()))
+        return sum(map(lambda x: x.quantity, self.get_items_cached))
 
     @property
+    # @cached_property
     def total_cost(self):
 
-        return sum(map(lambda x: x.product_cost, self.user.basket.all()))
+        return sum(map(lambda x: x.product_cost, self.get_items_cached))
 
     @staticmethod
     def get_item(pk):

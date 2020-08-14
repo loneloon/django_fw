@@ -1,0 +1,12 @@
+http://192.168.0.185/
+http://192.168.0.185/products/
+http://192.168.0.185/contacts/
+http://192.168.0.185/category/0/page/0
+http://192.168.0.185/category/1/page/0
+http://192.168.0.185/category/2/page/0
+http://192.168.0.185/basket/
+http://192.168.0.185/orders/
+http://192.168.0.185/auth/edit/
+http://192.168.0.185/orders/update/40/
+http://192.168.0.185/orders/update/36/
+http://192.168.0.185/orders/update/42/

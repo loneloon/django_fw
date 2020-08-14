@@ -1,0 +1,2 @@
+http://192.168.0.185/auth/login/ POST username=django&password=geekbrains
+http://192.168.0.185/orders/update/20

@@ -1,0 +1,1257 @@
+POST /auth/login/ HTTP/1.1
+Host: 192.168.0.185
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+Content-type: application/x-www-form-urlencoded
+Content-length: 35
+
+username=django&password=geekbrains
+
+HTTP/1.1 403 Forbidden
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:49 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
+
+
+GET /orders/update/20 HTTP/1.1
+Host: 192.168.0.185
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 0
+Connection: close
+Location: /orders/update/20/
+
+GET /orders/update/20/ HTTP/1.1
+Host: 192.168.0.185
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Vary: Cookie
+Set-Cookie: csrftoken=c0lqfOyu1Un9I71xtLXgsc2XFBXuQY8dZ7nGlEwT9kc653EGgMDeFGGL6pvRWQEi; expires=Mon, 09 Aug 2021 09:08:50 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Content-Encoding: gzip
+
+
+GET /static/img/bee_logo.png HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: image/png
+Content-Length: 28500
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-6f54"
+Accept-Ranges: bytes
+
+
+GET /static/js/order.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: application/javascript
+Content-Length: 4455
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-1167"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery.formset.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: application/javascript
+Content-Length: 12732
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-31bc"
+Accept-Ranges: bytes
+
+
+GET /static/js/bootstrap.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: application/javascript
+Content-Length: 37045
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-90b5"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery-3.2.1.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: application/javascript
+Content-Length: 86659
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-15283"
+Accept-Ranges: bytes
+
+
+GET /static/css/auth.css HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: text/css
+Content-Length: 5842
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-16d2"
+Accept-Ranges: bytes
+
+
+POST /auth/login/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+Content-type: application/x-www-form-urlencoded
+Content-length: 35
+
+username=django&password=geekbrains
+
+HTTP/1.1 403 Forbidden
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:50 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
+
+
+GET /orders/update/20 HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:51 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 0
+Connection: close
+Location: /orders/update/20/
+
+GET /orders/update/20/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:51 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Vary: Cookie
+Set-Cookie: csrftoken=hGpdsdtbwzLHETS2oK03qAr8Epmb4ws4lHXHayDbFI2z3kwqL8K2J9scKqmqhrpk; expires=Mon, 09 Aug 2021 09:08:51 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Content-Encoding: gzip
+
+
+GET /static/img/bee_logo.png HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:51 GMT
+Content-Type: image/png
+Content-Length: 28500
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-6f54"
+Accept-Ranges: bytes
+
+
+GET /static/js/order.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:51 GMT
+Content-Type: application/javascript
+Content-Length: 4455
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-1167"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery.formset.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:51 GMT
+Content-Type: application/javascript
+Content-Length: 12732
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-31bc"
+Accept-Ranges: bytes
+
+
+GET /static/js/bootstrap.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:51 GMT
+Content-Type: application/javascript
+Content-Length: 37045
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-90b5"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery-3.2.1.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:51 GMT
+Content-Type: application/javascript
+Content-Length: 86659
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-15283"
+Accept-Ranges: bytes
+
+
+GET /static/css/auth.css HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:51 GMT
+Content-Type: text/css
+Content-Length: 5842
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-16d2"
+Accept-Ranges: bytes
+
+
+POST /auth/login/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+Content-type: application/x-www-form-urlencoded
+Content-length: 35
+
+username=django&password=geekbrains
+
+HTTP/1.1 403 Forbidden
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:52 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
+
+
+GET /orders/update/20 HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 0
+Connection: close
+Location: /orders/update/20/
+
+GET /orders/update/20/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Vary: Cookie
+Set-Cookie: csrftoken=Ob5M7qUWL8E3eqkrb3vWv4BeewCZKbb8YSkRnIASEZ4wTMrP07AC2Vh7Drl2CQi8; expires=Mon, 09 Aug 2021 09:08:53 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Content-Encoding: gzip
+
+
+GET /static/img/bee_logo.png HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: image/png
+Content-Length: 28500
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-6f54"
+Accept-Ranges: bytes
+
+
+GET /static/js/order.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: application/javascript
+Content-Length: 4455
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-1167"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery.formset.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: application/javascript
+Content-Length: 12732
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-31bc"
+Accept-Ranges: bytes
+
+
+GET /static/js/bootstrap.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: application/javascript
+Content-Length: 37045
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-90b5"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery-3.2.1.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: application/javascript
+Content-Length: 86659
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-15283"
+Accept-Ranges: bytes
+
+
+GET /static/css/auth.css HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: text/css
+Content-Length: 5842
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-16d2"
+Accept-Ranges: bytes
+
+
+POST /auth/login/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+Content-type: application/x-www-form-urlencoded
+Content-length: 35
+
+username=django&password=geekbrains
+
+HTTP/1.1 403 Forbidden
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
+
+
+GET /orders/update/20 HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 0
+Connection: close
+Location: /orders/update/20/
+
+GET /orders/update/20/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Vary: Cookie
+Set-Cookie: csrftoken=CPGhvcdOvUPSgFcjWQj8ibepTomVoZzNE35yynoynKvQ1jwAzudfb8MHo9p8oKYR; expires=Mon, 09 Aug 2021 09:08:53 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Content-Encoding: gzip
+
+
+GET /static/img/bee_logo.png HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: image/png
+Content-Length: 28500
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-6f54"
+Accept-Ranges: bytes
+
+
+GET /static/js/order.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: application/javascript
+Content-Length: 4455
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-1167"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery.formset.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: application/javascript
+Content-Length: 12732
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-31bc"
+Accept-Ranges: bytes
+
+
+GET /static/js/bootstrap.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: application/javascript
+Content-Length: 37045
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-90b5"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery-3.2.1.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: application/javascript
+Content-Length: 86659
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-15283"
+Accept-Ranges: bytes
+
+
+GET /static/css/auth.css HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:53 GMT
+Content-Type: text/css
+Content-Length: 5842
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-16d2"
+Accept-Ranges: bytes
+
+
+POST /auth/login/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+Content-type: application/x-www-form-urlencoded
+Content-length: 35
+
+username=django&password=geekbrains
+
+HTTP/1.1 403 Forbidden
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
+
+
+GET /orders/update/20 HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 0
+Connection: close
+Location: /orders/update/20/
+
+GET /orders/update/20/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Vary: Cookie
+Set-Cookie: csrftoken=XVDj57DshKGCWRzMDGrN1JI0hjd4a2XJQajEhCapZMS0Kyusn89GjLDaSgRqjsPC; expires=Mon, 09 Aug 2021 09:08:54 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Content-Encoding: gzip
+
+
+GET /static/img/bee_logo.png HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: image/png
+Content-Length: 28500
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-6f54"
+Accept-Ranges: bytes
+
+
+GET /static/js/order.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: application/javascript
+Content-Length: 4455
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-1167"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery.formset.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: application/javascript
+Content-Length: 12732
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-31bc"
+Accept-Ranges: bytes
+
+
+GET /static/js/bootstrap.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: application/javascript
+Content-Length: 37045
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-90b5"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery-3.2.1.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: application/javascript
+Content-Length: 86659
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-15283"
+Accept-Ranges: bytes
+
+
+GET /static/css/auth.css HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:54 GMT
+Content-Type: text/css
+Content-Length: 5842
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-16d2"
+Accept-Ranges: bytes
+
+
+POST /auth/login/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+Content-type: application/x-www-form-urlencoded
+Content-length: 35
+
+username=django&password=geekbrains
+
+HTTP/1.1 403 Forbidden
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:55 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
+
+
+GET /orders/update/20 HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 0
+Connection: close
+Location: /orders/update/20/
+
+GET /orders/update/20/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Vary: Cookie
+Set-Cookie: csrftoken=0Ryue5eE6anZt2SA1079QOYN7PemgVXCNA8egmNGpg2tNBsG6HgMyZidZwgcBrTl; expires=Mon, 09 Aug 2021 09:08:56 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Content-Encoding: gzip
+
+
+GET /static/img/bee_logo.png HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: image/png
+Content-Length: 28500
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-6f54"
+Accept-Ranges: bytes
+
+
+GET /static/js/order.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: application/javascript
+Content-Length: 4455
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-1167"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery.formset.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: application/javascript
+Content-Length: 12732
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-31bc"
+Accept-Ranges: bytes
+
+
+GET /static/js/bootstrap.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: application/javascript
+Content-Length: 37045
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-90b5"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery-3.2.1.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: application/javascript
+Content-Length: 86659
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-15283"
+Accept-Ranges: bytes
+
+
+GET /static/css/auth.css HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: text/css
+Content-Length: 5842
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-16d2"
+Accept-Ranges: bytes
+
+
+POST /auth/login/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+Content-type: application/x-www-form-urlencoded
+Content-length: 35
+
+username=django&password=geekbrains
+
+HTTP/1.1 403 Forbidden
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:56 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
+
+
+GET /orders/update/20 HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:57 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 0
+Connection: close
+Location: /orders/update/20/
+
+GET /orders/update/20/ HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:57 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Frame-Options: SAMEORIGIN
+Vary: Cookie
+Set-Cookie: csrftoken=VJ2mGKVOr3oMrWN7Pd9259bMIgrIpyCCSCr7yltwyzCnSprAliWwdnqvUm17mVUB; expires=Mon, 09 Aug 2021 09:08:57 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Content-Encoding: gzip
+
+
+GET /static/img/bee_logo.png HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:57 GMT
+Content-Type: image/png
+Content-Length: 28500
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-6f54"
+Accept-Ranges: bytes
+
+
+GET /static/js/order.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:57 GMT
+Content-Type: application/javascript
+Content-Length: 4455
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-1167"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery.formset.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:57 GMT
+Content-Type: application/javascript
+Content-Length: 12732
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-31bc"
+Accept-Ranges: bytes
+
+
+GET /static/js/bootstrap.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:57 GMT
+Content-Type: application/javascript
+Content-Length: 37045
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-90b5"
+Accept-Ranges: bytes
+
+
+GET /static/js/jquery-3.2.1.min.js HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:57 GMT
+Content-Type: application/javascript
+Content-Length: 86659
+Last-Modified: Mon, 10 Aug 2020 03:53:46 GMT
+Connection: close
+ETag: "5f30c4ca-15283"
+Accept-Ranges: bytes
+
+
+GET /static/css/auth.css HTTP/1.1
+Host: 192.168.0.185
+Cookie: SameSite=Lax
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.4
+Connection: close
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Mon, 10 Aug 2020 09:08:57 GMT
+Content-Type: text/css
+Content-Length: 5842
+Last-Modified: Mon, 10 Aug 2020 03:53:45 GMT
+Connection: close
+ETag: "5f30c4c9-16d2"
+Accept-Ranges: bytes
+
+

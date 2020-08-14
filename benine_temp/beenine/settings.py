@@ -1,3 +1,4 @@
+
 """
 Django settings for beenine project.
 
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'ordersapp',
     'debug_toolbar',
     'template_profiler_panel',
+    'django_extensions',
+    'disable_cache_headers.apps.DisableCacheHeadersConfig',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'disable_cache_headers.middleware.DisableCacheControl',
 ]
 
 if DEBUG:
@@ -86,6 +90,21 @@ if DEBUG:
        'debug_toolbar.panels.profiling.ProfilingPanel',
        'template_profiler_panel.panels.template.TemplateProfilerPanel',
    ]
+
+if os.name == 'posix':
+	CACHE_MIDDLEWARE_ALIAS = 'default'
+	CACHE_MIDDLEWARE_SECONDS = 120
+	CACHE_MIDDLEWARE_KEY_PREFIX = 'beenine'
+
+	CACHES = {
+		'default': {
+			'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+			'LOCATION': '127.0.0.1:11211',
+		}
+
+	} 
+
+LOW_CACHE = True
 
 ROOT_URLCONF = 'beenine.urls'
 
@@ -116,9 +135,17 @@ WSGI_APPLICATION = 'beenine.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    	'NAME': 'beenine',
+    	'ENGINE': 'django.db.backends.postgresql',
+    	'USER': 'django',
+    	'PASSWORD': 'geekbrains',
+    	'HOST': 'localhost'
     }
 }
 
@@ -158,8 +185,10 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
+
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     'static',
