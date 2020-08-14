@@ -144,8 +144,8 @@ def index(request):
     return render(request, 'mainapp/index.html', context)
 
 
-@never_cache
-# @cache_page(3600)
+# @never_cache
+@cache_page(3600)
 def products(request):
 
 
@@ -163,8 +163,8 @@ def products(request):
 
 
 
-# @never_cache
-@cache_page(3600)
+@never_cache
+# @cache_page(3600)
 def category_products(request, pk=None, page=1):
 
 
