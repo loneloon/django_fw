@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'disable_cache_headers.middleware.DisableCacheControl',
 ]
 
@@ -135,18 +137,18 @@ WSGI_APPLICATION = 'beenine.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
-
     'default': {
-    	'NAME': 'beenine',
-    	'ENGINE': 'django.db.backends.postgresql',
-    	'USER': 'django',
-    	'PASSWORD': 'geekbrains',
-    	'HOST': 'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+
+    # 'default': {
+    # 	'NAME': 'beenine',
+    # 	'ENGINE': 'django.db.backends.postgresql',
+    # 	'USER': 'django',
+    # 	'PASSWORD': 'geekbrains',
+    # 	'HOST': 'localhost'
+    # }
 }
 
 
