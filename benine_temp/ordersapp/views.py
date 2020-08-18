@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.forms import inlineformset_factory
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.shortcuts import get_object_or_404, HttpResponseRedirect, reverse
 
@@ -12,12 +14,15 @@ from django.dispatch import receiver
 from django.db.models.signals import pre_save, pre_delete
 
 
-
 class OrderList(ListView):
-   model = Order
+    model = Order
 
-   def get_queryset(self):
-       return self.request.user.order_set.all()
+    def get_queryset(self):
+        return self.request.user.order_set.all()
+
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
 
 # 7 min -> 20:05 AIR
@@ -25,6 +30,10 @@ class OrderItemsCreate(CreateView):
     model = Order
     form_class = OrderForm
     success_url = reverse_lazy('ordersapp:orders_list')
+
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -79,20 +88,27 @@ class OrderItemsCreate(CreateView):
         return super().form_valid(form)
 
 
-
 class OrderRead(DetailView):
-   model = Order
+    model = Order
 
-   def get_context_data(self, **kwargs):
-       context = super(OrderRead, self).get_context_data(**kwargs)
-       context['title'] = 'Order:View'
-       return context
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(OrderRead, self).get_context_data(**kwargs)
+        context['title'] = 'Order:View'
+        return context
 
 
 class OrderItemsUpdate(UpdateView):
     model = Order
     form_class = OrderForm
     success_url = reverse_lazy('ordersapp:orders_list')
+
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -131,34 +147,37 @@ class OrderItemsUpdate(UpdateView):
     # ordersapp/order_form.html
 
 
-
-
 class OrderDelete(DeleteView):
     model = Order
     success_url = reverse_lazy('ordersapp:orders_list')
     # ordersapp/order_confirm_delete.html
 
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
 
 def order_forming_complete(request, pk):
-   order = get_object_or_404(Order, pk=pk)
-   order.status = Order.SENT_TO_PROCEED
-   order.save()
+    order = get_object_or_404(Order, pk=pk)
+    order.status = Order.SENT_TO_PROCEED
+    order.save()
 
-   return HttpResponseRedirect(reverse('ordersapp:orders_list'))
+    return HttpResponseRedirect(reverse('ordersapp:orders_list'))
+
 
 @receiver(pre_save, sender=OrderItem)
 # @receiver(pre_save, sender=Basket)
 def product_quantity_update_save(sender, update_fields, instance, **kwargs):
-   if update_fields is 'quantity' or 'product':
-       if instance.pk:
-           instance.product.stock -= instance.quantity - sender.get_item(instance.pk).quantity
-       else:
-           instance.product.stock -= instance.quantity
-       instance.product.save()
+    if update_fields is 'quantity' or 'product':
+        if instance.pk:
+            instance.product.stock -= instance.quantity - sender.get_item(instance.pk).quantity
+        else:
+            instance.product.stock -= instance.quantity
+        instance.product.save()
 
 
 @receiver(pre_delete, sender=OrderItem)
 # @receiver(pre_delete, sender=Basket)
 def product_quantity_update_delete(sender, instance, **kwargs):
-   instance.product.stock += instance.quantity
-   instance.product.save()
+    instance.product.stock += instance.quantity
+    instance.product.save()
