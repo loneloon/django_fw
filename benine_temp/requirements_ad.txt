@@ -22,7 +22,7 @@ django-disable-cache-headers==0.0.1
 django-extensions==3.0.4
 graphviz==0.5.2
 gunicorn==19.7.1
-httplib2==0.9.2
+httplib2==0.19.0
 hyperlink==17.3.1
 idna==2.10
 incremental==16.10.1
